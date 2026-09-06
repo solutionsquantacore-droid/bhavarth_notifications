@@ -6,131 +6,425 @@
     <title>दीपावली</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #D84315;
-            --accent-color: #F9A826;
-            --text-dark: #3E2723;
-            --text-light: #5D4037;
-            --bg-color: #FFF3E0;
-            --white: #FFFFFF;
+            --primary: #d35400; /* Deep Orange / Diya Color */
+            --secondary: #f39c12; /* Gold */
+            --bg-light: #fffcf5;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --card-bg: #ffffff;
         }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Mukta', sans-serif;
-            background-color: var(--bg-color);
+            background-color: #f8f5f0;
             color: var(--text-dark);
             line-height: 1.6;
-            padding: 20px;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(249, 168, 38, 0.3);
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 30px;
         }
 
-        .hero-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 4px solid var(--accent-color);
-        }
-
-        .content-section {
-            padding: 30px 25px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            font-size: 28px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
+        /* Hero Section */
+        .hero {
             position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(211, 84, 0, 0.95) 0%, rgba(211, 84, 0, 0.4) 50%, rgba(0,0,0,0) 100%);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero-title {
+            font-family: 'Yatra One', cursive;
+            font-size: 46px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+            color: #ffd700;
+        }
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            opacity: 0.9;
         }
 
-        h1::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 5px;
-        }
+        /* Content Wrapper */
+        .content { padding: 20px; margin-top: -20px; position: relative; z-index: 10; }
 
-        .story {
-            font-size: 18px;
-            color: var(--text-light);
-            text-align: justify;
-            margin-bottom: 25px;
-            text-justify: inter-word;
-        }
-
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(249, 168, 38, 0.1), rgba(216, 67, 21, 0.05));
-            border-left: 5px solid var(--primary-color);
+        /* Premium Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
             padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid rgba(211, 84, 0, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed rgba(243, 156, 18, 0.4);
+            padding-bottom: 10px;
+        }
+        .card-header i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 12px;
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Lists */
+        .vidhi-list { list-style: none; }
+        .vidhi-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        .vidhi-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+
+        /* Mantra Box */
+        .mantra-box {
+            background: #fff3e0;
+            border-left: 5px solid var(--primary);
+            padding: 15px;
             border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .mantra-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Yatra One', cursive;
+            line-height: 1.8;
+        }
+
+        /* Accordion */
+        .accordion {
+            background-color: #fff9c4;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid rgba(243, 156, 18, 0.5);
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-top: 10px;
         }
-
-        .conclusion-box p {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-align: center;
-            margin: 0;
+        .active, .accordion:hover { background-color: #fff59d; }
+        .panel {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 10px 10px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        .scroll-text { 
+            max-height: 300px; 
+            overflow-y: auto; 
+            padding: 15px 0;
+            text-align: center; 
         }
 
-        .footer {
-            text-align: center;
-            padding: 15px;
-            background-color: var(--primary-color);
-            color: var(--white);
+        /* Bhog Section */
+        .bhog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .bhog-item {
+            background: #fff8e1;
+            color: #b9770e;
+            padding: 8px 15px;
+            border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
-            letter-spacing: 1px;
+            border: 1px solid #f8c471;
         }
+
+        /* Share Card */
+        .share-card {
+            background: linear-gradient(135deg, var(--primary), #a04000);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(211, 84, 0, 0.4);
+        }
+        .share-text {
+            font-size: 18px;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.2s;
+        }
+        .btn:active { opacity: 0.8; }
+        
+        .toast {
+            visibility: hidden;
+            min-width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 25px;
+            padding: 12px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 14px;
+        }
+        .toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Banner Image (Hosted on GitHub Raw) -->
-        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/diwali.webp" alt="दीपावली" class="hero-banner">
-
-        <div class="content-section">
-            <!-- Title -->
-            <h1>दीपावली</h1>
-
-            <!-- Story -->
-            <div class="story">
-                दीपावली अंधकार पर प्रकाश की विजय का महापर्व है। इस दिन मर्यादा पुरुषोत्तम भगवान श्रीराम 14 वर्ष का वनवास काटकर और लंकापति रावण का वध करके अयोध्या लौटे थे। उनके आगमन की खुशी में अयोध्यावासियों ने पूरी नगरी को दीपों से सजाया था। इसके अलावा, इसी दिन माता लक्ष्मी समुद्र मंथन से प्रकट हुई थीं, इसलिए इस दिन माता लक्ष्मी और भगवान गणेश की विशेष पूजा की जाती है, ताकि घर में सुख, समृद्धि और शांति का वास हो।
-            </div>
-
-            <!-- Conclusion -->
-            <div class="conclusion-box">
-                <p>दीपों का यह पर्व आपके जीवन से अज्ञान रूपी अंधकार को मिटाकर ज्ञान, सफलता और समृद्धि का प्रकाश लाए। शुभ दीपावली!</p>
-            </div>
-        </div>
-        
-        <div class="footer">
-            भावार्थ प्रीमियम • दिव्य और अलौकिक
+<div class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/diwali.webp" alt="Diwali">
+        <div class="hero-overlay">
+            <h1 class="hero-title">दीपावली</h1>
+            <div class="hero-subtitle">प्रकाश, उल्लास और सुख-समृद्धि का महापर्व</div>
         </div>
     </div>
+
+    <div class="content">
+        
+        <!-- Intro & Significance -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-om"></i>
+                <h2 class="card-title">दीपावली का महत्व</h2>
+            </div>
+            <p style="color: var(--text-muted); text-align: justify; margin-bottom: 15px;">
+                दीपावली, प्रकाश का सबसे बड़ा हिंदू त्योहार है, जो कार्तिक मास की अमावस्या को मनाया जाता है। इसी दिन भगवान श्री राम 14 वर्ष का वनवास पूर्ण कर और लंकापति रावण का वध कर अयोध्या लौटे थे। उनके आगमन की खुशी में पूरी अयोध्या को दीपों से सजाया गया था।
+            </p>
+            <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 10px;">पर्व की प्रमुख मान्यताएं:</h3>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-sun"></i> यह पर्व अज्ञान पर ज्ञान और अंधकार पर प्रकाश की विजय का प्रतीक है।</li>
+                <li><i class="fa-solid fa-coins"></i> इस दिन धन की देवी माँ लक्ष्मी और विघ्नहर्ता भगवान गणेश की पूजा की जाती है।</li>
+                <li><i class="fa-solid fa-heart"></i> दीपावली प्रेम, भाईचारे और सकारात्मकता फैलाने का संदेश देती है।</li>
+            </ul>
+        </div>
+
+        <!-- Puja Vidhi -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-hands-praying"></i>
+                <h2 class="card-title">पूजा विधि व परंपरा</h2>
+            </div>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-broom"></i> <strong>स्वच्छता व सजावट:</strong> घर की सफाई कर रंगोली बनाएं और आम के पत्तों का तोरण लगाएं।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>कलश व मूर्ति स्थापना:</strong> प्रदोष काल (शुभ मुहूर्त) में एक चौकी पर लाल वस्त्र बिछाकर माता लक्ष्मी, सरस्वती और भगवान गणेश की प्रतिमा स्थापित करें।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>पूजन सामग्री:</strong> कुमकुम, अक्षत, हल्दी, कमल का फूल, पान और सुपारी अर्पित करें।</li>
+                <li><i class="fa-solid fa-fire-flame-curved"></i> <strong>दीप प्रज्वलन:</strong> सरसों के तेल और घी के दीप जलाकर पूरे घर को रोशन करें।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>आरती:</strong> अंत में सपरिवार मिलकर आरती करें और खील-बताशे का प्रसाद बांटें।</li>
+            </ul>
+        </div>
+
+
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/laxmi_ganesh_ji.webp" alt="Laxmi Ganesh Ji" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; object-fit: cover;">
+        <!-- Mantra -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-music"></i>
+                <h2 class="card-title">श्री महालक्ष्मी मंत्र</h2>
+            </div>
+            <div class="mantra-box">
+                <div class="mantra-text">
+                    "ॐ श्रीं ह्रीं श्रीं कमले कमलालये प्रसीद प्रसीद<br>श्रीं ह्रीं श्रीं ॐ महालक्ष्मयै नम:॥"
+                </div>
+            </div>
+        </div>
+
+        <!-- Bhog / Prasad -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-bowl-rice"></i>
+                <h2 class="card-title">प्रमुख व्यंजन एवं प्रसाद</h2>
+            </div>
+            <div class="bhog-grid">
+                <div class="bhog-item">🍘 खील-बताशे</div>
+                <div class="bhog-item">🟡 बेसन के लड्डू</div>
+                <div class="bhog-item">⬜ काजू कतली</div>
+                <div class="bhog-item">🥛 पंचामृत</div>
+                <div class="bhog-item">🥟 गुजिया</div>
+            </div>
+        </div>
+
+        <!-- Reading Materials (Accordions) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">आरती संग्रह</h2>
+            </div>
+            
+            <button class="accordion"><i class="fa-solid fa-bell"></i> श्री लक्ष्मी आरती <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>ॐ जय लक्ष्मी माता, मैया जय लक्ष्मी माता।</strong><br>
+                    तुमको निसदिन सेवत, हरि विष्णु विधाता॥<br><br>
+                    उमा रमा ब्रह्माणी, तुम ही जग माता।<br>
+                    सूर्य चन्द्रमा ध्यावत, नारद ऋषि गाता॥<br><br>
+                    दुर्गा रूप निरंजनी, सुख सम्पत्ति दाता।<br>
+                    जो कोई तुमको ध्यावत, ऋद्धि-सिद्धि धन पाता॥<br><br>
+                    तुम पाताल निवासिनि, तुम ही शुभदाता।<br>
+                    कर्म प्रभाव प्रकाशिनि, भवनिधि की त्राता॥<br><br>
+                    जिस घर में तुम रहती, सब सद्गुण आता।<br>
+                    सब सम्भव हो जाता, मन नहीं घबराता॥<br><br>
+                    तुम बिन यज्ञ न होते, वस्त्र न कोई पाता।<br>
+                    खान-पान का वैभव, सब तुमसे आता॥<br><br>
+                    शुभ गुण मन्दिर सुन्दर, क्षीरोदधि जाता।<br>
+                    रत्न चतुर्दश तुम बिन, कोई नहीं पाता॥<br><br>
+                    महालक्ष्मी जी की आरती, जो कोई नर गाता।<br>
+                    उर आनन्द समाता, पाप उतर जाता॥
+                </div>
+            </div>
+
+            <button class="accordion"><i class="fa-solid fa-om"></i> श्री गणेश आरती <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>जय गणेश, जय गणेश, जय गणेश देवा।</strong><br>
+                    माता जाकी पार्वती, पिता महादेवा॥<br><br>
+                    एक दन्त दयावन्त, चार भुजा धारी।<br>
+                    माथे सिन्दूर सोहे, मूसे की सवारी॥<br><br>
+                    पान चढ़े फूल चढ़े, और चढ़े मेवा।<br>
+                    लड्डुअन का भोग लगे, सन्त करें सेवा॥<br><br>
+                    अंधन को आँख देत, कोढ़िन को काया।<br>
+                    बाँझन को पुत्र देत, निर्धन को माया॥<br><br>
+                    'सूर' श्याम शरण आए, सफल कीजे सेवा।<br>
+                    माता जाकी पार्वती, पिता महादेवा॥
+                </div>
+            </div>
+        </div>
+
+        <!-- Share Card -->
+        <div class="share-card">
+            <div class="share-text" id="shareText">
+                "दीपावली के इस पावन पर्व पर माँ लक्ष्मी और भगवान श्री गणेश आपके जीवन को सुख, समृद्धि और प्रकाश से भर दें। शुभ दीपावली! 🪔✨"
+            </div>
+            <button class="btn" onclick="shareWishes()">
+                <i class="fa-solid fa-share-nodes"></i> शुभकामनाएं साझा करें
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div id="toast" class="toast">शुभकामनाएं कॉपी हो गईं!</div>
+
+<script>
+    // Accordion Logic
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+
+    // Share Logic
+    function shareWishes() {
+        var shareText = document.getElementById("shareText").innerText;
+        if (navigator.share) {
+            navigator.share({
+                title: 'दीपावली',
+                text: shareText
+            }).catch(console.error);
+        } else {
+            navigator.clipboard.writeText(shareText).then(function() {
+                showToast("शुभकामनाएं कॉपी हो गईं! अब आप इसे पेस्ट कर सकते हैं।");
+            });
+        }
+    }
+
+    function showToast(msg) {
+        var toast = document.getElementById("toast");
+        toast.innerText = msg;
+        toast.className = "toast show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+    }
+</script>
 
 </body>
 </html>

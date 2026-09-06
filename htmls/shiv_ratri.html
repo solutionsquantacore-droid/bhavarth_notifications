@@ -6,131 +6,412 @@
     <title>महाशिवरात्रि</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #D84315;
-            --accent-color: #F9A826;
-            --text-dark: #3E2723;
-            --text-light: #5D4037;
-            --bg-color: #FFF3E0;
-            --white: #FFFFFF;
+            --primary: #283593; /* Deep Neelkanth Blue */
+            --secondary: #5c6bc0; /* Soft Indigo */
+            --accent: #e64a19; /* Trishul/Tilak Orange */
+            --bg-light: #e8eaf6;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
         }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Mukta', sans-serif;
-            background-color: var(--bg-color);
+            background-color: #c5cae9;
             color: var(--text-dark);
             line-height: 1.6;
-            padding: 20px;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(249, 168, 38, 0.3);
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 30px;
         }
 
-        .hero-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 4px solid var(--accent-color);
-        }
-
-        .content-section {
-            padding: 30px 25px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            font-size: 28px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
+        /* Hero Section */
+        .hero {
             position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(40, 53, 147, 0.95) 0%, rgba(40, 53, 147, 0.4) 50%, rgba(0,0,0,0) 100%);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero-title {
+            font-family: 'Yatra One', cursive;
+            font-size: 46px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #ffcc80;
+        }
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            opacity: 0.9;
         }
 
-        h1::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 5px;
-        }
+        /* Content Wrapper */
+        .content { padding: 20px; margin-top: -20px; position: relative; z-index: 10; }
 
-        .story {
-            font-size: 18px;
-            color: var(--text-light);
-            text-align: justify;
-            margin-bottom: 25px;
-            text-justify: inter-word;
-        }
-
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(249, 168, 38, 0.1), rgba(216, 67, 21, 0.05));
-            border-left: 5px solid var(--primary-color);
+        /* Premium Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
             padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(40, 53, 147, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed rgba(92, 107, 192, 0.5);
+            padding-bottom: 10px;
+        }
+        .card-header i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 12px;
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Lists */
+        .vidhi-list { list-style: none; }
+        .vidhi-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        .vidhi-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+
+        /* Story Text */
+        .story-text {
+            color: var(--text-muted);
+            text-align: justify;
+            margin-bottom: 15px;
+            background-color: #e8eaf6;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #c5cae9;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Mantra Box */
+        .mantra-box {
+            background: #e8eaf6;
+            border-left: 5px solid var(--primary);
+            padding: 15px;
             border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .mantra-text {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Yatra One', cursive;
+            line-height: 1.8;
+        }
+
+        /* Accordion */
+        .accordion {
+            background-color: #e8eaf6;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid rgba(92, 107, 192, 0.4);
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-top: 10px;
         }
-
-        .conclusion-box p {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-align: center;
-            margin: 0;
+        .active, .accordion:hover { background-color: #c5cae9; }
+        .panel {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 10px 10px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        .scroll-text { 
+            max-height: 300px; 
+            overflow-y: auto; 
+            padding: 15px 0;
+            text-align: center; 
         }
 
-        .footer {
-            text-align: center;
-            padding: 15px;
-            background-color: var(--primary-color);
-            color: var(--white);
+        /* Bhog Section */
+        .bhog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .bhog-item {
+            background: #fdf5f6;
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
-            letter-spacing: 1px;
+            border: 1px solid #c5cae9;
+            background-color: #e8eaf6;
         }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Banner Image (Hosted on GitHub Raw) -->
-        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/shiv_ratri.webp" alt="महाशिवरात्रि" class="hero-banner">
-
-        <div class="content-section">
-            <!-- Title -->
-            <h1>महाशिवरात्रि</h1>
-
-            <!-- Story -->
-            <div class="story">
-                महाशिवरात्रि भगवान शिव और माता पार्वती के अलौकिक विवाह के उपलक्ष्य में मनाई जाती है। यह दिन अंधकार और अज्ञानता पर विजय पाने का महान पर्व है। एक अन्य मान्यता के अनुसार, इसी रात को भगवान शिव ने सृष्टि को बचाने के लिए समुद्र मंथन से निकला हलाहल विष पीकर अपने कंठ में धारण किया था, जिससे वे 'नीलकंठ' कहलाए। भक्त इस दिन व्रत रखते हैं और शिवलिंग पर जल, बेलपत्र व धतूरा अर्पित कर भोलेनाथ की पूजा करते हैं।
-            </div>
-
-            <!-- Conclusion -->
-            <div class="conclusion-box">
-                <p>भगवान भोलेनाथ की असीम कृपा आप पर सदा बनी रहे। शिवरात्रि का यह पावन पर्व आपके जीवन में शांति, उत्तम स्वास्थ्य और आध्यात्मिक जागृति लेकर आए।</p>
-            </div>
-        </div>
-        
-        <div class="footer">
-            भावार्थ प्रीमियम • दिव्य और अलौकिक
+<div class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/shiv_ratri.webp" alt="Maha Shivratri">
+        <div class="hero-overlay">
+            <h1 class="hero-title">महाशिवरात्रि</h1>
+            <div class="hero-subtitle">देवों के देव महादेव और माता पार्वती के पवित्र विवाह का महापर्व</div>
         </div>
     </div>
+
+    <div class="content">
+        
+        <!-- Intro & Significance -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-moon"></i>
+                <h2 class="card-title">महाशिवरात्रि का महत्व</h2>
+            </div>
+            <p style="color: var(--text-muted); text-align: justify; margin-bottom: 15px;">
+                महाशिवरात्रि फाल्गुन मास के कृष्ण पक्ष की चतुर्दशी तिथि को मनाया जाने वाला एक अत्यंत पावन और प्रमुख पर्व है। यह महान रात्रि भगवान शिव की अपार कृपा, उनके कल्याणकारी स्वरूप और वैराग्य के उत्सव को समर्पित है।
+            </p>
+            <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 10px;">पर्व की मान्यताएं:</h3>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-star"></i> माना जाता है कि इस रात्रि ग्रहों की स्थिति ऐसी होती है जो मानव शरीर में प्राकृतिक रूप से ऊर्जा को ऊपर की ओर ले जाती है।</li>
+                <li><i class="fa-solid fa-star"></i> जो भी भक्त इस दिन सच्चे मन से शिवलिंग का अभिषेक करता है, उसके जीवन के सभी कष्ट (रोग, दोष, दरिद्रता) दूर हो जाते हैं।</li>
+            </ul>
+        </div>
+
+        <!-- Story -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">महाशिवरात्रि की पौराणिक कथाएं</h2>
+            </div>
+            <div class="story-text">
+                <strong>शिव-पार्वती का पावन विवाह:</strong><br>
+                महाशिवरात्रि को मुख्य रूप से भगवान शिव और माता पार्वती के विवाह की रात्रि के रूप में मनाया जाता है। माता पार्वती ने शिवजी को पति रूप में पाने के लिए कठोर तपस्या की थी। इसी पावन रात्रि को वैराग्य (शिव) और प्रकृति (पार्वती) का महामिलन हुआ था, जिससे सृष्टि में संतुलन स्थापित हुआ।<br><br>
+                <strong>हलाहल विष का पान (नीलकंठ):</strong><br>
+                देवताओं और असुरों द्वारा किए गए 'समुद्र मंथन' से जब सबसे पहले भयंकर 'हलाहल' विष निकला, तो पूरी सृष्टि नष्ट होने लगी। तब भगवान शिव ने संसार की रक्षा के लिए उस विष को अपने कंठ (गले) में धारण कर लिया। विष के प्रभाव से उनका कंठ नीला पड़ गया और वे 'नीलकंठ' कहलाए। सृष्टि की रक्षा के इस महान उपकार को भी महाशिवरात्रि के दिन पूजा जाता है।<br><br>
+                <strong>ज्योतिर्लिंग का प्राकट्य:</strong><br>
+                एक अन्य मान्यता के अनुसार, इसी फाल्गुन चतुर्दशी की मध्यरात्रि को भगवान शिव पहली बार ब्रह्मा और विष्णु जी के समक्ष एक अनंत निराकार 'ज्योतिर्लिंग' (अग्नि स्तंभ) के रूप में प्रकट हुए थे।
+            </div>
+        </div>
+
+
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/shiv_ratri_banner.webp" alt="Shiv Ratri Banner" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; object-fit: cover;">
+        <!-- Puja Vidhi -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-hands-praying"></i>
+                <h2 class="card-title">पूजा विधि व परंपराएं</h2>
+            </div>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-droplet"></i> <strong>रुद्राभिषेक:</strong> शिवलिंग का पवित्र गंगाजल, गाय के दूध, दही, शहद, घी और शक्कर (पंचामृत) से अभिषेक किया जाता है।</li>
+                <li><i class="fa-solid fa-leaf"></i> <strong>बिल्वपत्र अर्पण:</strong> भगवान शिव को तीन पत्तों वाला 'बिल्वपत्र' (बेलपत्र), धतूरा, भांग और सफेद पुष्प अर्पित करना सबसे शुभ माना जाता है।</li>
+                <li><i class="fa-solid fa-sun"></i> <strong>महाव्रत व रात्रि जागरण:</strong> भक्त इस दिन निर्जला या फलाहारी व्रत रखते हैं और पूरी रात जागरण कर शिव भजनों व मंत्रों का जाप करते हैं (चार प्रहर की पूजा)।</li>
+                <li><i class="fa-solid fa-fire-flame-curved"></i> <strong>भस्म और भभूत:</strong> शिवजी को भस्म अति प्रिय है, अतः पूजा में भस्म का प्रयोग किया जाता है।</li>
+            </ul>
+        </div>
+
+        <!-- Mantra -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-music"></i>
+                <h2 class="card-title">महामृत्युंजय व पंचाक्षरी मंत्र</h2>
+            </div>
+            <div class="mantra-box">
+                <div class="mantra-text">
+                    "ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्।<br>उर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात्॥"<br>
+                    <span style="font-size: 24px; display: block; margin-top: 10px; color: var(--accent);">"ॐ नमः शिवाय"</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bhog / Prasad -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-bowl-rice"></i>
+                <h2 class="card-title">महादेव का प्रिय भोग</h2>
+            </div>
+            <div class="bhog-grid">
+                <div class="bhog-item">🥛 ठंडाई</div>
+                <div class="bhog-item">🌿 भांग व धतूरा</div>
+                <div class="bhog-item">🍚 साबूदाना (खीर / खिचड़ी)</div>
+                <div class="bhog-item">🥔 फलाहार (आलू / शकरकंद)</div>
+                <div class="bhog-item">🍎 ताजे फल</div>
+            </div>
+        </div>
+
+        <!-- Reading Materials (Accordions) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">आरती व चालीसा</h2>
+            </div>
+            
+            <button class="accordion"><i class="fa-solid fa-bell"></i> श्री शिव आरती <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>ॐ जय शिव ओंकारा, स्वामी जय शिव ओंकारा।</strong><br>
+                    ब्रह्मा, विष्णु, सदाशिव, अर्द्धांगी धारा॥<br>
+                    ॐ जय शिव ओंकारा...<br><br>
+                    एकानन चतुरानन पञ्चानन राजे।<br>
+                    हंसासन गरुड़ासन वृषवाहन साजे॥<br>
+                    ॐ जय शिव ओंकारा...<br><br>
+                    दो भुज चार चतुर्भुज दसभुज अति सोहे।<br>
+                    त्रिगुण रूप निरखते त्रिभुवन जन मोहे॥<br>
+                    ॐ जय शिव ओंकारा...<br><br>
+                    अक्षमाला वनमाला मुण्डमाला धारी।<br>
+                    त्रिपुरारी कंसारी कर माला धारी॥<br>
+                    ॐ जय शिव ओंकारा...<br><br>
+                    श्वेताम्बर पीताम्बर बाघाम्बर अंगे।<br>
+                    सनकादिक गरुणादिक भूतादिक संगे॥<br>
+                    ॐ जय शिव ओंकारा...<br><br>
+                    कर के मध्य कमण्डलु चक्र त्रिशूलधारी।<br>
+                    सुखकारी दुखहारी जगपालन कारी॥<br>
+                    ॐ जय शिव ओंकारा...<br><br>
+                    ब्रह्मा विष्णु सदाशिव जानत अविवेका।<br>
+                    प्रणवाक्षर के मध्ये ये तीनों एका॥<br>
+                    ॐ जय शिव ओंकारा...<br><br>
+                    त्रिगुणस्वामी जी की आरती जो कोइ नर गावे।<br>
+                    कहत शिवानन्द स्वामी मनवान्छित फल पावे॥<br>
+                    ॐ जय शिव ओंकारा...
+                </div>
+            </div>
+
+            <button class="accordion"><i class="fa-solid fa-om"></i> श्री शिव चालीसा (सार) <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>॥ दोहा ॥</strong><br>
+                    जय गणेश गिरिजा सुवन, मंगल मूल सुजान।<br>
+                    कहत अयोध्यादास तुम, देहु अभय वरदान॥<br><br>
+                    <strong>॥ चौपाई ॥</strong><br>
+                    जय गिरजा पति दीन दयाला।<br>
+                    सदा करत सन्तन प्रतिपाला॥<br>
+                    भाल चन्द्रमा सोहत नीके।<br>
+                    कानन कुण्डल नागफनी के॥<br>
+                    अंग गौर शिर गंग बहाये।<br>
+                    मुण्डमाल तन क्षार लगाए॥<br>
+                    वस्त्र खाल बाघम्बर सोहे।<br>
+                    छवि को देखि नाग मुनि मोहे॥<br>
+                    मैना मातु की ह्वै दुलारी।<br>
+                    बाम अंग सोहत छवि न्यारी॥<br>
+                    कर त्रिशूल सोहत छवि भारी।<br>
+                    करत सदा शत्रुन क्षयकारी॥<br>
+                    नन्दि गणेश सोहै तहँ कैसे।<br>
+                    सागर मध्य कमल हैं जैसे॥<br>
+                    कार्तिक श्याम और गणराऊ।<br>
+                    या छवि को कहि जात न काऊ॥<br>
+                    देवन जबहीं जाय पुकारा।<br>
+                    तब ही दुख प्रभु आप निवारा॥<br>
+                    किया उपद्रव तारक भारी।<br>
+                    देवन सब मिलि तुमहिं जुहारी॥<br>
+                    तुरत षडानन आप पठायउ।<br>
+                    लवनिमेष महँ मारि गिरायउ॥<br>
+                    आप जलंधर असुर संहारा।<br>
+                    सुयश तुम्हार विदित संसारा॥<br>
+                    त्रिपुरासुर सन युद्ध मचाई।<br>
+                    सबहिं कृपा कर लीन बचाई॥<br>
+                    किया तपहिं भागीरथ भारी।<br>
+                    पुरब प्रतिज्ञा तासु पुरारी॥<br>
+                    दानिन महँ तुम सम कोउ नाहीं।<br>
+                    सेवक स्तुति करत सदाहीं॥<br>
+                    वेद नाम महिमा तव गाई।<br>
+                    अकथ अनादि भेद नहिं पाई॥<br><br>
+                    <strong>॥ दोहा ॥</strong><br>
+                    नित्त नेम कर प्रातः ही, पाठ करौं चालीस।<br>
+                    तुम मेरी मनोकामना, पूर्ण करो जगदीश॥
+                </div>
+            </div>
+        </div>
+
+        <!-- Celebration Message -->
+        <div style="background: linear-gradient(135deg, var(--primary), #1a237e); color: white; text-align: center; padding: 25px; border-radius: 20px; box-shadow: 0 10px 20px rgba(40, 53, 147, 0.3); margin-top: 10px;">
+            <div style="font-size: 20px; font-weight: 600; font-family: 'Yatra One', cursive; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); line-height: 1.5;">
+                "कण-कण में शिव हैं, हर जगह में शिव हैं।<br>वर्तमान भी शिव हैं और भविष्य भी महाकाल हैं।<br><span style="color: var(--accent); font-size: 24px;">महाशिवरात्रि की हार्दिक शुभकामनाएं! 🔱🌿</span>"
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Accordion Logic
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
 
 </body>
 </html>

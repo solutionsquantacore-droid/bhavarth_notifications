@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>धनतेरस (धनत्रयोदशी)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #f57f17; /* Deep Gold / Orange */
+            --secondary: #ffb300; /* Amber Gold */
+            --accent: #2e7d32; /* Prosperity Green */
+            --bg-light: #fffde7;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Mukta', sans-serif;
+            background-color: #fff9c4;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 30px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(245, 127, 23, 0.95) 0%, rgba(245, 127, 23, 0.4) 50%, rgba(0,0,0,0) 100%);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero-title {
+            font-family: 'Yatra One', cursive;
+            font-size: 42px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #ffffff;
+        }
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Content Wrapper */
+        .content { padding: 20px; margin-top: -20px; position: relative; z-index: 10; }
+
+        /* Premium Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(245, 127, 23, 0.2);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed rgba(255, 179, 0, 0.5);
+            padding-bottom: 10px;
+        }
+        .card-header i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 12px;
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Lists */
+        .vidhi-list { list-style: none; }
+        .vidhi-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        .vidhi-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+
+        /* Story Text */
+        .story-text {
+            color: var(--text-muted);
+            text-align: justify;
+            margin-bottom: 15px;
+            background-color: #fffde7;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #fff59d;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Mantra Box */
+        .mantra-box {
+            background: #fff9c4;
+            border-left: 5px solid var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .mantra-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Yatra One', cursive;
+            line-height: 1.8;
+        }
+
+        /* Accordion */
+        .accordion {
+            background-color: #fff59d;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid rgba(255, 179, 0, 0.4);
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .active, .accordion:hover { background-color: #ffee58; }
+        .panel {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 10px 10px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        .scroll-text { 
+            max-height: 300px; 
+            overflow-y: auto; 
+            padding: 15px 0;
+            text-align: center; 
+        }
+
+        /* Bhog Section */
+        .bhog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .bhog-item {
+            background: #fffde7;
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #fff59d;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/dhanteras.webp" alt="Dhanteras">
+        <div class="hero-overlay">
+            <h1 class="hero-title">धनतेरस (धनत्रयोदशी)</h1>
+            <div class="hero-subtitle">आरोग्य, सुख-समृद्धि और धन-धान्य का पावन पर्व</div>
+        </div>
+    </div>
+
+    <div class="content">
+        
+        <!-- Intro & Significance -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-coins"></i>
+                <h2 class="card-title">धनतेरस का महत्व</h2>
+            </div>
+            <p style="color: var(--text-muted); text-align: justify; margin-bottom: 15px;">
+                कार्तिक मास के कृष्ण पक्ष की त्रयोदशी तिथि को धनतेरस (धनत्रयोदशी) का पावन पर्व मनाया जाता है। इसी दिन से पांच दिनों तक चलने वाले दीपावली के महापर्व की भव्य शुरुआत होती है। यह दिन भगवान धन्वंतरि (आयुर्वेद के जनक), कुबेर देव (धन के देवता) और माता लक्ष्मी की कृपा प्राप्ति के लिए अत्यंत शुभ माना जाता है।
+            </p>
+            <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 10px;">पर्व की मान्यताएं:</h3>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-star"></i> इस दिन खरीदी गई धातु (सोना, चांदी, पीतल) की वस्तुओं में तेरह (13) गुना वृद्धि होती है।</li>
+                <li><i class="fa-solid fa-star"></i> धनतेरस को 'राष्ट्रीय आयुर्वेद दिवस' के रूप में भी मनाया जाता है, क्योंकि इस दिन भगवान धन्वंतरि प्रकट हुए थे।</li>
+            </ul>
+        </div>
+
+        <!-- Story -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">पौराणिक कथाएं व मान्यताएं</h2>
+            </div>
+            <div class="story-text">
+                <strong>भगवान धन्वंतरि का प्राकट्य (अमृत कलश):</strong><br>
+                पौराणिक कथा के अनुसार, देवताओं और असुरों द्वारा किए गए 'समुद्र मंथन' के दौरान कार्तिक कृष्ण त्रयोदशी के दिन ही भगवान धन्वंतरि अपने हाथों में सोने का 'अमृत कलश' लेकर प्रकट हुए थे। वे भगवान विष्णु के ही अंशावतार माने जाते हैं और संसार को रोगों से मुक्त करने के लिए उन्होंने आयुर्वेद का ज्ञान दिया था। इसलिए इस दिन उनकी पूजा कर अच्छे स्वास्थ्य की कामना की जाती है।<br><br>
+                <strong>यमराज और यम का दीया:</strong><br>
+                एक कथा के अनुसार, राजा हेमा के पुत्र की मृत्यु सर्पदंश से विवाह के चौथे दिन होनी थी। उसकी नवविवाहिता पत्नी ने उस रात पति को सोने नहीं दिया, ढेरों दीये जलाए और द्वार पर सोने-चांदी के आभूषणों का ढेर लगा दिया। जब यमराज सर्प रूप में आए, तो आभूषणों और दीयों की चमक से उनकी आंखें चौंधिया गईं और वे खाली हाथ लौट गए। तभी से अकाल मृत्यु से बचने के लिए धनतेरस की शाम यमराज के नाम का 'यम दीपक' जलाने की परंपरा है।
+            </div>
+        </div>
+
+        <!-- Puja Vidhi -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-hands-praying"></i>
+                <h2 class="card-title">पूजा विधि व परंपराएं</h2>
+            </div>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-bag-shopping"></i> <strong>शुभ खरीदारी:</strong> इस दिन सोना, चांदी, पीतल के बर्तन, या नई झाड़ू (माता लक्ष्मी का प्रतीक) खरीदना बहुत शुभ माना जाता है।</li>
+                <li><i class="fa-solid fa-om"></i> <strong>धन्वंतरि व कुबेर पूजा:</strong> शाम के शुभ मुहूर्त में भगवान धन्वंतरि, कुबेर देव और माता लक्ष्मी की प्रतिमा या चित्र स्थापित कर धूप-दीप से उनकी पूजा की जाती है।</li>
+                <li><i class="fa-solid fa-fire"></i> <strong>यम दीपदान:</strong> सूर्यास्त के बाद घर के मुख्य द्वार पर दक्षिण दिशा (यमराज की दिशा) की ओर मुख करके यमराज के नाम का चौमुखी (चार मुख वाला) दीपक जलाया जाता है।</li>
+            </ul>
+        </div>
+
+        <!-- Mantra -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-music"></i>
+                <h2 class="card-title">धन्वंतरि व कुबेर मंत्र</h2>
+            </div>
+            <div class="mantra-box">
+                <div class="mantra-text">
+                    "ॐ धन्वन्तरये नमः"<br>
+                    <span style="font-size: 16px; color: var(--text-muted); font-family: 'Mukta', sans-serif;">(अच्छे स्वास्थ्य के लिए)</span><br><br>
+                    <span style="font-size: 20px; color: var(--accent);">"ॐ यक्षाय कुबेराय वैश्रवणाय धनधान्याधिपतये नमः"</span><br>
+                    <span style="font-size: 16px; color: var(--text-muted); font-family: 'Mukta', sans-serif;">(धन-धान्य और समृद्धि के लिए)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bhog / Prasad -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-bowl-rice"></i>
+                <h2 class="card-title">शुभ प्रसाद</h2>
+            </div>
+            <div class="bhog-grid">
+                <div class="bhog-item">🌿 साबुत धनिया व गुड़</div>
+                <div class="bhog-item">⚪ सफेद बताशे</div>
+                <div class="bhog-item">🌾 खील और खिलौने</div>
+                <div class="bhog-item">🟡 बेसन के लड्डू</div>
+                <div class="bhog-item">🪙 पंचामृत</div>
+            </div>
+        </div>
+
+        <!-- Reading Materials (Accordions) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">आरती संग्रह</h2>
+            </div>
+            
+            <button class="accordion"><i class="fa-solid fa-bell"></i> भगवान धन्वंतरि जी की आरती <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>जय धन्वंतरि देवा, जय धन्वंतरि जी देवा।</strong><br>
+                    जरा-रोग से प्राणी, दिलाते छुटकारा॥<br>
+                    जय धन्वंतरि देवा...<br><br>
+                    तुम समुद्र से निकले, अमृत कलश लिए।<br>
+                    देवासुर के संकट, आकर दूर किए॥<br>
+                    जय धन्वंतरि देवा...<br><br>
+                    आयुर्वेद बनाया, जग में फैलाया।<br>
+                    सदा स्वस्थ रहने का, साधन बतलाया॥<br>
+                    जय धन्वंतरि देवा...<br><br>
+                    भुजा चार अति सुंदर, शंख चक्र धारी।<br>
+                    आयुर्वेद वनस्पति से, शोभा है न्यारी॥<br>
+                    जय धन्वंतरि देवा...<br><br>
+                    जो कोई तुमको ध्यावे, रोग मुक्त होवे।<br>
+                    सुख-संपत्ति सब पावे, दुख दरिद्र खोवे॥<br>
+                    जय धन्वंतरि देवा...
+                </div>
+            </div>
+        </div>
+
+        <!-- Celebration Message -->
+        <div style="background: linear-gradient(135deg, var(--primary), #e65100); color: white; text-align: center; padding: 25px; border-radius: 20px; box-shadow: 0 10px 20px rgba(245, 127, 23, 0.3); margin-top: 10px;">
+            <div style="font-size: 20px; font-weight: 600; font-family: 'Yatra One', cursive; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); line-height: 1.5;">
+                "आपके घर में धन की बरसात हो, लक्ष्मी जी का वास हो,<br>संकटों का नाश हो और सुख-शांति का वास हो।<br><span style="color: #fff59d; font-size: 24px;">धनतेरस की हार्दिक शुभकामनाएं! 💰🪔</span>"
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Accordion Logic
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

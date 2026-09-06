@@ -6,131 +6,387 @@
     <title>भाई दूज</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #D84315;
-            --accent-color: #F9A826;
-            --text-dark: #3E2723;
-            --text-light: #5D4037;
-            --bg-color: #FFF3E0;
-            --white: #FFFFFF;
+            --primary: #9c27b0; /* Purple / Pink tones for Bhai Dooj */
+            --secondary: #e91e63; /* Pink */
+            --bg-light: #fdf5f6;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --card-bg: #ffffff;
         }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Mukta', sans-serif;
-            background-color: var(--bg-color);
+            background-color: #fce4ec;
             color: var(--text-dark);
             line-height: 1.6;
-            padding: 20px;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(249, 168, 38, 0.3);
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 30px;
         }
 
-        .hero-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 4px solid var(--accent-color);
-        }
-
-        .content-section {
-            padding: 30px 25px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            font-size: 28px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
+        /* Hero Section */
+        .hero {
             position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(156, 39, 176, 0.9) 0%, rgba(156, 39, 176, 0.3) 50%, rgba(0,0,0,0) 100%);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero-title {
+            font-family: 'Yatra One', cursive;
+            font-size: 42px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #ffeb3b;
+        }
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            opacity: 0.9;
         }
 
-        h1::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 5px;
-        }
+        /* Content Wrapper */
+        .content { padding: 20px; margin-top: -20px; position: relative; z-index: 10; }
 
-        .story {
-            font-size: 18px;
-            color: var(--text-light);
-            text-align: justify;
-            margin-bottom: 25px;
-            text-justify: inter-word;
-        }
-
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(249, 168, 38, 0.1), rgba(216, 67, 21, 0.05));
-            border-left: 5px solid var(--primary-color);
+        /* Premium Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
             padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(156, 39, 176, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed rgba(233, 30, 99, 0.4);
+            padding-bottom: 10px;
+        }
+        .card-header i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 12px;
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Lists */
+        .vidhi-list { list-style: none; }
+        .vidhi-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        .vidhi-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+
+        /* Mantra Box */
+        .mantra-box {
+            background: #f3e5f5;
+            border-left: 5px solid var(--primary);
+            padding: 15px;
             border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .mantra-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Yatra One', cursive;
+            line-height: 1.8;
+        }
+
+        /* Accordion */
+        .accordion {
+            background-color: #fce4ec;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid rgba(233, 30, 99, 0.3);
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-top: 10px;
         }
-
-        .conclusion-box p {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-align: center;
-            margin: 0;
+        .active, .accordion:hover { background-color: #f8bbd0; }
+        .panel {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 10px 10px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        .scroll-text { 
+            max-height: 300px; 
+            overflow-y: auto; 
+            padding: 15px 0;
+            text-align: center; 
         }
 
-        .footer {
-            text-align: center;
+        /* Story Text */
+        .story-text {
+            color: var(--text-muted);
+            text-align: justify;
+            margin-bottom: 15px;
+            background-color: #fff8e1;
             padding: 15px;
-            background-color: var(--primary-color);
-            color: var(--white);
+            border-radius: 10px;
+            border: 1px solid #ffecb3;
+            font-size: 15px;
+        }
+
+        /* Bhog Section */
+        .bhog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .bhog-item {
+            background: #fdf5f6;
+            color: #9c27b0;
+            padding: 8px 15px;
+            border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
-            letter-spacing: 1px;
+            border: 1px solid #e1bee7;
         }
+
+        /* Share Card */
+        .share-card {
+            background: linear-gradient(135deg, var(--primary), #4a148c);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(156, 39, 176, 0.3);
+        }
+        .share-text {
+            font-size: 18px;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.2s;
+        }
+        .btn:active { opacity: 0.8; }
+        
+        .toast {
+            visibility: hidden;
+            min-width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 25px;
+            padding: 12px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 14px;
+        }
+        .toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Banner Image (Hosted on GitHub Raw) -->
-        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/bhai_dooj.webp" alt="भाई दूज" class="hero-banner">
-
-        <div class="content-section">
-            <!-- Title -->
-            <h1>भाई दूज</h1>
-
-            <!-- Story -->
-            <div class="story">
-                भाई दूज (यम द्वितीया) भाई-बहन के पवित्र और अटूट प्रेम को समर्पित एक विशेष त्योहार है, जो पांच दिवसीय दीपावली पर्व के अंतिम दिन मनाया जाता है। पौराणिक मान्यता के अनुसार, इसी दिन मृत्यु के देवता यमराज अपनी बहन यमुना के घर भोजन करने गए थे। यमुना जी ने उनका तिलक कर सत्कार किया, जिससे प्रसन्न होकर यमराज ने वरदान दिया कि जो भी भाई इस दिन अपनी बहन के घर आकर भोजन करेगा और तिलक लगवाएगा, उसे अकाल मृत्यु का भय नहीं रहेगा।
-            </div>
-
-            <!-- Conclusion -->
-            <div class="conclusion-box">
-                <p>भाई-बहन के स्नेह और विश्वास का यह पर्व आपके जीवन में खुशियों की सौगात लाए। आपका आपसी रिश्ता हमेशा प्रेम और सम्मान से महकता रहे।</p>
-            </div>
-        </div>
-        
-        <div class="footer">
-            भावार्थ प्रीमियम • दिव्य और अलौकिक
+<div class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/bhai_dooj.webp" alt="Bhai Dooj">
+        <div class="hero-overlay">
+            <h1 class="hero-title">भाई दूज</h1>
+            <div class="hero-subtitle">भाई-बहन के अटूट प्रेम और विश्वास का पावन पर्व</div>
         </div>
     </div>
+
+    <div class="content">
+        
+        <!-- Intro & Significance -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-heart"></i>
+                <h2 class="card-title">भाई दूज (यम द्वितीया)</h2>
+            </div>
+            <p style="color: var(--text-muted); text-align: justify; margin-bottom: 15px;">
+                भाई दूज, जिसे यम द्वितीया भी कहा जाता है, कार्तिक मास के शुक्ल पक्ष की द्वितीया तिथि (दीपावली के दो दिन बाद) को मनाया जाता है। यह त्योहार भाई-बहन के अत्यंत पवित्र और निस्वार्थ प्रेम का प्रतीक है।
+            </p>
+            <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 10px;">पर्व का महत्व:</h3>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-star"></i> इस दिन बहनें अपने भाई की लंबी उम्र, सफलता और सुख-समृद्धि की कामना करती हैं।</li>
+                <li><i class="fa-solid fa-star"></i> जो भाई इस दिन अपनी बहन के घर जाकर प्रेमपूर्वक भोजन करता है, उसे यमराज का भय नहीं रहता।</li>
+            </ul>
+        </div>
+
+        <!-- Bhai Dooj Story (New Section) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">पौराणिक कथा</h2>
+            </div>
+            <div class="story-text">
+                <strong>यमराज और यमुना की कथा:</strong><br><br>
+                पौराणिक मान्यता के अनुसार, मृत्यु के देवता यमराज अपनी बहन यमुना से अत्यंत स्नेह करते थे। कार्य की व्यस्तता के कारण वे बहुत समय तक अपनी बहन से मिलने नहीं जा पा रहे थे। एक दिन यमराज अचानक अपनी बहन यमुना के घर पहुंचे।<br><br>
+                अपने भाई को द्वार पर देखकर यमुना अति प्रसन्न हुईं। उन्होंने यमराज का भव्य स्वागत किया, उन्हें तिलक लगाया और प्रेमपूर्वक स्वादिष्ट भोजन कराया। यमुना के इस स्नेह से यमराज इतने प्रसन्न हुए कि उन्होंने यमुना को वरदान मांगने को कहा।<br><br>
+                यमुना ने वरदान मांगा कि, <em>"हे भ्राता! जो भी भाई आज के दिन (कार्तिक शुक्ल द्वितीया) अपनी बहन के घर आकर भोजन करेगा और बहन से तिलक लगवाएगा, उसे कभी भी अकाल मृत्यु का भय नहीं रहेगा।"</em> यमराज ने तथास्तु कहा और तभी से भाई दूज का यह पावन पर्व मनाया जाने लगा।
+            </div>
+        </div>
+
+        <!-- Puja Vidhi -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-hands-praying"></i>
+                <h2 class="card-title">पूजा विधि व परंपरा</h2>
+            </div>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-circle-check"></i> <strong>तिलक लगाना:</strong> बहनें रोली, चंदन और अक्षत (चावल) से अपने भाई के मस्तक पर तिलक करती हैं।</li>
+                <li><i class="fa-solid fa-circle-check"></i> <strong>गोला भेंट करना:</strong> तिलक के बाद बहनें भाई के हाथ में सूखा नारियल (गोला) देती हैं।</li>
+                <li><i class="fa-solid fa-circle-check"></i> <strong>आरती उतारना:</strong> बहनें दीप जलाकर अपने भाई की आरती उतारती हैं और उनके उज्जवल भविष्य की कामना करती हैं।</li>
+                <li><i class="fa-solid fa-circle-check"></i> <strong>मिष्ठान व भोजन:</strong> बहन अपने भाई को अपने हाथों से मिठाई खिलाती है और प्रेमपूर्वक भोजन कराती है।</li>
+                <li><i class="fa-solid fa-circle-check"></i> <strong>उपहार:</strong> भाई अपनी बहन को स्नेह स्वरूप सुंदर उपहार और दक्षिणा देकर उसकी रक्षा का वचन देता है।</li>
+            </ul>
+        </div>
+
+        <!-- Mantra -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-music"></i>
+                <h2 class="card-title">भाई दूज तिलक मंत्र</h2>
+            </div>
+            <div class="mantra-box">
+                <div class="mantra-text">
+                    "गंगा पूजे यमुना को, यमी पूजे यमराज को।<br>सुभद्रा पूजे कृष्ण को, गंगा यमुना नीर बहे, मेरे भाई आप बढ़ें॥"
+                </div>
+            </div>
+        </div>
+
+        <!-- Bhog / Prasad -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-bowl-rice"></i>
+                <h2 class="card-title">प्रमुख व्यंजन व भेंट</h2>
+            </div>
+            <div class="bhog-grid">
+                <div class="bhog-item">🥥 सूखा नारियल (गोला)</div>
+                <div class="bhog-item">🍡 पसंदीदा मिठाई</div>
+                <div class="bhog-item">🍃 पान</div>
+                <div class="bhog-item">🍎 ताजे फल</div>
+            </div>
+        </div>
+
+        <!-- Share Card -->
+        <div class="share-card">
+            <div class="share-text" id="shareText">
+                "भाई दूज के पावन पर्व की हार्दिक शुभकामनाएं! ईश्वर आपके भाई-बहन के इस अटूट प्रेम को हमेशा बनाए रखे। 🌸"
+            </div>
+            <button class="btn" onclick="shareWishes()">
+                <i class="fa-solid fa-share-nodes"></i> शुभकामनाएं साझा करें
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div id="toast" class="toast">शुभकामनाएं कॉपी हो गईं!</div>
+
+<script>
+    // Share Logic
+    function shareWishes() {
+        var shareText = document.getElementById("shareText").innerText;
+        if (navigator.share) {
+            navigator.share({
+                title: 'भाई दूज',
+                text: shareText
+            }).catch(console.error);
+        } else {
+            navigator.clipboard.writeText(shareText).then(function() {
+                showToast("शुभकामनाएं कॉपी हो गईं! अब आप इसे पेस्ट कर सकते हैं।");
+            });
+        }
+    }
+
+    function showToast(msg) {
+        var toast = document.getElementById("toast");
+        toast.innerText = msg;
+        toast.className = "toast show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+    }
+</script>
 
 </body>
 </html>

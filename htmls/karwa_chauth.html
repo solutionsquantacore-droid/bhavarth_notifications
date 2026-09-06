@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>करवा चौथ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #c62828; /* Suhag Red / Maroon */
+            --secondary: #e91e63; /* Pink */
+            --accent: #fbc02d; /* Gold */
+            --bg-light: #ffebee;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Mukta', sans-serif;
+            background-color: #ffcdd2;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 30px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(198, 40, 40, 0.95) 0%, rgba(198, 40, 40, 0.4) 50%, rgba(0,0,0,0) 100%);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero-title {
+            font-family: 'Yatra One', cursive;
+            font-size: 46px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #ffeb3b;
+        }
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Content Wrapper */
+        .content { padding: 20px; margin-top: -20px; position: relative; z-index: 10; }
+
+        /* Premium Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(198, 40, 40, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed rgba(233, 30, 99, 0.5);
+            padding-bottom: 10px;
+        }
+        .card-header i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 12px;
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Lists */
+        .vidhi-list { list-style: none; }
+        .vidhi-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        .vidhi-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+
+        /* Story Text */
+        .story-text {
+            color: var(--text-muted);
+            text-align: justify;
+            margin-bottom: 15px;
+            background-color: #ffebee;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ffcdd2;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Mantra Box */
+        .mantra-box {
+            background: #ffcdd2;
+            border-left: 5px solid var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .mantra-text {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Yatra One', cursive;
+            line-height: 1.8;
+        }
+
+        /* Accordion */
+        .accordion {
+            background-color: #ffebee;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid rgba(233, 30, 99, 0.4);
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .active, .accordion:hover { background-color: #ffcdd2; }
+        .panel {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 10px 10px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        .scroll-text { 
+            max-height: 300px; 
+            overflow-y: auto; 
+            padding: 15px 0;
+            text-align: center; 
+        }
+
+        /* Bhog Section */
+        .bhog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .bhog-item {
+            background: #fdf5f6;
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #f48fb1;
+            background-color: #ffebee;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/karwa_chauth.webp" alt="Karwa Chauth">
+        <div class="hero-overlay">
+            <h1 class="hero-title">करवा चौथ</h1>
+            <div class="hero-subtitle">अखंड सौभाग्य और पति-पत्नी के अटूट प्रेम का पावन व्रत</div>
+        </div>
+    </div>
+
+    <div class="content">
+        
+        <!-- Intro & Significance -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-heart"></i>
+                <h2 class="card-title">करवा चौथ का महत्व</h2>
+            </div>
+            <p style="color: var(--text-muted); text-align: justify; margin-bottom: 15px;">
+                करवा चौथ कार्तिक मास के कृष्ण पक्ष की चतुर्थी तिथि को मनाया जाने वाला सुहागिन महिलाओं का सबसे प्रमुख और पवित्र व्रत है। इस दिन महिलाएं अपने पति की लंबी आयु, उत्तम स्वास्थ्य और सुख-समृद्धि के लिए पूरे दिन निर्जला व्रत रखती हैं।
+            </p>
+            <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 10px;">पर्व की मान्यताएं:</h3>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-star"></i> यह व्रत सुहागिन स्त्रियों के लिए अखंड सौभाग्य का प्रतीक है।</li>
+                <li><i class="fa-solid fa-star"></i> करवा चौथ का व्रत सूर्योदय से शुरू होकर रात में चंद्रमा दर्शन के बाद ही खोला जाता है।</li>
+            </ul>
+        </div>
+
+        <!-- Story -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">करवा चौथ की पौराणिक कथाएं</h2>
+            </div>
+            <div class="story-text">
+                <strong>करवा माता की कथा:</strong><br>
+                प्राचीन काल में करवा नाम की एक पतिव्रता स्त्री थी। एक बार नदी में स्नान करते समय उसके पति को मगरमच्छ ने पकड़ लिया। तब करवा ने अपने सतीत्व के प्रभाव से यमराज को विवश कर दिया कि वे मगरमच्छ को मृत्युदंड दें और उसके पति को जीवनदान दें। तभी से 'करवा चौथ' का व्रत सुहाग की रक्षा के लिए रखा जाने लगा।<br><br>
+                <strong>रानी वीरवती की कथा:</strong><br>
+                वीरवती नाम की एक रानी ने अपने पति की लंबी आयु के लिए निर्जला व्रत रखा था। भूख-प्यास से तड़पती अपनी बहन को देखकर उसके भाइयों ने छल से पेड़ के पीछे छलनी में दीप रखकर नकली चांद दिखा दिया। व्रत खोलने के तुरंत बाद उसके पति की मृत्यु हो गई। जब उसे अपनी भूल का एहसास हुआ, तो उसने अगले वर्ष पूरे विधि-विधान से पुनः करवा चौथ का व्रत किया, जिसके प्रभाव से माता पार्वती और करवा माता की कृपा से उसका पति पुनर्जीवित हो गया।
+            </div>
+        </div>
+
+        <!-- Puja Vidhi -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-hands-praying"></i>
+                <h2 class="card-title">पूजा विधि व परंपराएं</h2>
+            </div>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-sun"></i> <strong>सरगी:</strong> सास अपनी बहू को सूर्योदय से पूर्व खाने के लिए 'सरगी' (मिठाई, फल, मेवे) देती है, जिसे खाकर व्रत की शुरुआत होती है।</li>
+                <li><i class="fa-solid fa-droplet-slash"></i> <strong>निर्जला व्रत:</strong> सुहागिनें पूरे दिन बिना अन्न और जल ग्रहण किए व्रत रखती हैं।</li>
+                <li><i class="fa-solid fa-om"></i> <strong>माता पार्वती की पूजा:</strong> शाम के समय शुभ मुहूर्त में मिट्टी के 'करवे' से भगवान शिव, माता पार्वती और श्री गणेश की पूजा की जाती है और व्रत कथा सुनी जाती है।</li>
+                <li><i class="fa-solid fa-moon"></i> <strong>चंद्र दर्शन व अर्घ्य:</strong> रात्रि में छलनी से चंद्रमा के दर्शन कर और उन्हें जल (अर्घ्य) देकर, फिर अपने पति का चेहरा देखकर उनके हाथों से जल ग्रहण कर महिलाएं अपना व्रत खोलती हैं।</li>
+            </ul>
+        </div>
+
+        <!-- Mantra -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-music"></i>
+                <h2 class="card-title">माता पार्वती मंत्र</h2>
+            </div>
+            <div class="mantra-box">
+                <div class="mantra-text">
+                    "नमः शिवायै शर्वाण्यै सौभाग्यं संतति शुभाम्।<br>प्रयच्छ भक्तियुक्तानां नारीणां हरवल्लभे॥"<br>
+                    <span style="font-size: 24px; display: block; margin-top: 10px; color: var(--accent);">"ॐ उमामहेश्वराभ्यां नमः"</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bhog / Prasad -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-bowl-rice"></i>
+                <h2 class="card-title">प्रिय भोग व प्रसाद</h2>
+            </div>
+            <div class="bhog-grid">
+                <div class="bhog-item">🥞 मीठे करवे (फेनी)</div>
+                <div class="bhog-item">🥨 मठरी / सुहाली</div>
+                <div class="bhog-item">🥣 हलवा</div>
+                <div class="bhog-item">🥥 श्रीफल व मेवे</div>
+                <div class="bhog-item">🍎 ताजे फल (सरगी)</div>
+            </div>
+        </div>
+
+        <!-- Reading Materials (Accordions) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">करवा माता आरती</h2>
+            </div>
+            
+            <button class="accordion"><i class="fa-solid fa-bell"></i> करवा माता की आरती <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>ओम जय करवा मैया, माता जय करवा मैया।</strong><br>
+                    जो व्रत करे तुम्हारा, पार करो नैया॥<br>
+                    ओम जय करवा मैया...<br><br>
+                    सब सुहागिनों की तुम हो रखवारी।<br>
+                    जो भी तुम्हें ध्यावे, होती मंगलकारी॥<br>
+                    ओम जय करवा मैया...<br><br>
+                    माथे सिंदूर सोहे, बिंदिया है प्यारी।<br>
+                    कर में मेहंदी रचे, महिमा है न्यारी॥<br>
+                    ओम जय करवा मैया...<br><br>
+                    व्रत जो तुम्हारा रखे, फल उसे पावे।<br>
+                    पति की आयु बढ़े, सुख-सम्पत्ति आवे॥<br>
+                    ओम जय करवा मैया...<br><br>
+                    शाम सवेरे जो भी, आरती गावे।<br>
+                    मैया करवे वाली, मनवांछित फल पावे॥<br>
+                    ओम जय करवा मैया, माता जय करवा मैया।
+                </div>
+            </div>
+        </div>
+
+        <!-- Celebration Message -->
+        <div style="background: linear-gradient(135deg, var(--primary), #880e4f); color: white; text-align: center; padding: 25px; border-radius: 20px; box-shadow: 0 10px 20px rgba(198, 40, 40, 0.3); margin-top: 10px;">
+            <div style="font-size: 20px; font-weight: 600; font-family: 'Yatra One', cursive; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); line-height: 1.5;">
+                "चाँद की शीतल चाँदनी और सुहाग की ये लाल चुनर,<br>ईश्वर से बस यही दुआ है, हर जन्म में मिलें आप ही हमसफ़र।<br><span style="color: var(--accent); font-size: 24px;">करवा चौथ की हार्दिक शुभकामनाएं! 🌙❤️</span>"
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Accordion Logic
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

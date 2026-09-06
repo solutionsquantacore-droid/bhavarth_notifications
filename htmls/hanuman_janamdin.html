@@ -6,131 +6,465 @@
     <title>हनुमान जन्मोत्सव</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #D84315;
-            --accent-color: #F9A826;
-            --text-dark: #3E2723;
-            --text-light: #5D4037;
-            --bg-color: #FFF3E0;
-            --white: #FFFFFF;
+            --primary: #d84315; /* Sindoor Red / Deep Saffron */
+            --secondary: #ff8f00; /* Gold */
+            --bg-light: #fff8e1;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
         }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Mukta', sans-serif;
-            background-color: var(--bg-color);
+            background-color: #fff3e0;
             color: var(--text-dark);
             line-height: 1.6;
-            padding: 20px;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(249, 168, 38, 0.3);
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 30px;
         }
 
-        .hero-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 4px solid var(--accent-color);
-        }
-
-        .content-section {
-            padding: 30px 25px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            font-size: 28px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
+        /* Hero Section */
+        .hero {
             position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(216, 67, 21, 0.95) 0%, rgba(216, 67, 21, 0.4) 50%, rgba(0,0,0,0) 100%);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero-title {
+            font-family: 'Yatra One', cursive;
+            font-size: 42px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #ffecb3;
+        }
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            opacity: 0.9;
         }
 
-        h1::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 5px;
-        }
+        /* Content Wrapper */
+        .content { padding: 20px; margin-top: -20px; position: relative; z-index: 10; }
 
-        .story {
-            font-size: 18px;
-            color: var(--text-light);
-            text-align: justify;
-            margin-bottom: 25px;
-            text-justify: inter-word;
-        }
-
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(249, 168, 38, 0.1), rgba(216, 67, 21, 0.05));
-            border-left: 5px solid var(--primary-color);
+        /* Premium Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
             padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(216, 67, 21, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed rgba(255, 143, 0, 0.5);
+            padding-bottom: 10px;
+        }
+        .card-header i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 12px;
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Lists */
+        .vidhi-list { list-style: none; }
+        .vidhi-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        .vidhi-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+
+        /* Story Text */
+        .story-text {
+            color: var(--text-muted);
+            text-align: justify;
+            margin-bottom: 15px;
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ffe0b2;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Mantra Box */
+        .mantra-box {
+            background: #ffe0b2;
+            border-left: 5px solid var(--primary);
+            padding: 15px;
             border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .mantra-text {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Yatra One', cursive;
+            line-height: 1.8;
+        }
+
+        /* Accordion */
+        .accordion {
+            background-color: #ffecb3;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid rgba(255, 143, 0, 0.4);
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-top: 10px;
         }
-
-        .conclusion-box p {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-align: center;
-            margin: 0;
+        .active, .accordion:hover { background-color: #ffe082; }
+        .panel {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 10px 10px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        .scroll-text { 
+            max-height: 300px; 
+            overflow-y: auto; 
+            padding: 15px 0;
+            text-align: center; 
         }
 
-        .footer {
-            text-align: center;
-            padding: 15px;
-            background-color: var(--primary-color);
-            color: var(--white);
+        /* Bhog Section */
+        .bhog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .bhog-item {
+            background: #fff8e1;
+            color: #d84315;
+            padding: 8px 15px;
+            border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
-            letter-spacing: 1px;
+            border: 1px solid #ffcc80;
         }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Banner Image (Hosted on GitHub Raw) -->
-        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/hanuman_ji_janamdin.webp" alt="हनुमान जन्मोत्सव" class="hero-banner">
-
-        <div class="content-section">
-            <!-- Title -->
-            <h1>हनुमान जन्मोत्सव</h1>
-
-            <!-- Story -->
-            <div class="story">
-                हनुमान जन्मोत्सव भगवान श्रीराम के परम भक्त संकटमोचन हनुमान जी के अवतरण दिवस के रूप में अत्यंत श्रद्धा और उल्लास के साथ मनाया जाता है। चैत्र मास की पूर्णिमा के दिन माता अंजनी और वानर राज केसरी के घर मारुति नंदन का जन्म हुआ था। हनुमान जी को बल, बुद्धि, विद्या और निस्वार्थ सेवा का सर्वोच्च प्रतीक माना जाता है। उन्होंने अपना संपूर्ण जीवन श्रीराम की भक्ति और धर्म की रक्षा में समर्पित कर दिया। इस दिन भक्त सुंदरकांड और हनुमान चालीसा का पाठ कर बालाजी की विशेष कृपा प्राप्त करते हैं।
-            </div>
-
-            <!-- Conclusion -->
-            <div class="conclusion-box">
-                <p>पवनपुत्र हनुमान जी की कृपा से आपके जीवन के सभी संकट दूर हों और आपको अतुलित बल, बुद्धि और सफलता की प्राप्ति हो। जय बजरंगबली!</p>
-            </div>
-        </div>
-        
-        <div class="footer">
-            भावार्थ प्रीमियम • दिव्य और अलौकिक
+<div class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/hanuman_ji_janamdin.webp" alt="Hanuman Janamdin">
+        <div class="hero-overlay">
+            <h1 class="hero-title">हनुमान जन्मोत्सव</h1>
+            <div class="hero-subtitle">बल, बुद्धि, विद्या और भक्ति के प्रतीक संकटमोचन का प्राकट्य दिवस</div>
         </div>
     </div>
+
+    <div class="content">
+        
+        <!-- Intro & Significance -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-om"></i>
+                <h2 class="card-title">हनुमान जन्मोत्सव का महत्व</h2>
+            </div>
+            <p style="color: var(--text-muted); text-align: justify; margin-bottom: 15px;">
+                चैत्र मास की पूर्णिमा तिथि को मर्यादा पुरुषोत्तम भगवान श्री राम के परम भक्त, संकटमोचन हनुमान जी का जन्म हुआ था। यह दिन पूरे भारत में अत्यंत हर्षोल्लास, श्रद्धा और भक्ति-भाव के साथ 'हनुमान जन्मोत्सव' के रूप में मनाया जाता है। 
+            </p>
+            <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 10px;">पर्व की मान्यताएं:</h3>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-star"></i> हनुमान जी को कलयुग का एकमात्र जाग्रत और अजर-अमर देवता माना जाता है।</li>
+                <li><i class="fa-solid fa-star"></i> इस दिन हनुमान जी की सच्चे मन से आराधना करने से जीवन के बड़े से बड़े संकट और भय दूर हो जाते हैं।</li>
+            </ul>
+        </div>
+
+        <!-- Story -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">श्री हनुमान के जन्म की कथा</h2>
+            </div>
+            <div class="story-text">
+                <strong>रुद्रावतार का प्राकट्य:</strong><br>
+                पौराणिक कथाओं के अनुसार, वानरराज केसरी और माता अंजनी ने पुत्र प्राप्ति के लिए घोर तपस्या की थी। उनकी तपस्या से प्रसन्न होकर भगवान शिव ने उन्हें वरदान दिया। वायु देव के आशीर्वाद से, माता अंजनी के गर्भ से भगवान शिव के ग्यारहवें रुद्रावतार के रूप में महाबली हनुमान जी का प्राकट्य हुआ। पवन देव के आशीर्वाद के कारण इन्हें 'पवनपुत्र' भी कहा जाता है।<br><br>
+                <strong>सूर्य को फल समझकर निगलना:</strong><br>
+                बालपन में हनुमान जी को एक बार बहुत तेज़ भूख लगी। उन्होंने आसमान में चमकते हुए लाल सूर्य को कोई मीठा फल समझ लिया और एक ही छलांग में सूर्य देव को निगल लिया। इससे पूरे ब्रह्मांड में हाहाकार और अंधकार मच गया। बाद में देवताओं की प्रार्थना और इंद्र देव के प्रहार के बाद उन्होंने सूर्य को मुक्त किया। इसके पश्चात् सभी देवताओं ने उन्हें अपनी-अपनी शक्तियां और अस्त्र-शस्त्र का वरदान दिया, जिससे वे 'महावीर' कहलाए।
+            </div>
+        </div>
+
+
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/hanuman_ji_banner.webp" alt="Hanuman Ji Banner" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; object-fit: cover;">
+        <!-- Puja Vidhi -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-hands-praying"></i>
+                <h2 class="card-title">पूजा विधि व परंपराएं</h2>
+            </div>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-check-circle"></i> <strong>चोला चढ़ाना:</strong> इस दिन भगवान हनुमान की मूर्ति पर सिंदूर और चमेली के तेल का लेप (चोला) चढ़ाया जाता है, जो उन्हें अत्यंत प्रिय है।</li>
+                <li><i class="fa-solid fa-book"></i> <strong>सुंदरकांड का पाठ:</strong> मंदिरों और घरों में सुंदरकांड, हनुमान चालीसा और बजरंग बाण का सामूहिक पाठ किया जाता है।</li>
+                <li><i class="fa-solid fa-leaf"></i> <strong>पुष्प व भोग:</strong> हनुमान जी को लाल रंग के पुष्प (विशेषकर गुड़हल) और तुलसी दल अर्पित किया जाता है, क्योंकि तुलसी के बिना उनका भोग अधूरा माना जाता है।</li>
+                <li><i class="fa-solid fa-om"></i> <strong>व्रत व संकल्प:</strong> कई भक्त इस दिन ब्रह्मचर्य का पालन करते हुए व्रत रखते हैं और भंडारे का आयोजन करते हैं।</li>
+            </ul>
+        </div>
+
+        <!-- Mantra -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-music"></i>
+                <h2 class="card-title">मारुति स्तुति व मंत्र</h2>
+            </div>
+            <div class="mantra-box">
+                <div class="mantra-text">
+                    "मनोजवं मारुततुल्यवेगं जितेन्द्रियं बुद्धिमतां वरिष्ठम्।<br>वातात्मजं वानरयूथमुख्यं श्रीरामदूतं शरणं प्रपद्ये॥"<br>
+                    <span style="font-size: 20px; display: block; margin-top: 10px;">"ॐ हं हनुमते नमः"</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bhog / Prasad -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-bowl-rice"></i>
+                <h2 class="card-title">प्रिय भोग व प्रसाद</h2>
+            </div>
+            <div class="bhog-grid">
+                <div class="bhog-item">🟠 मीठी बूंदी</div>
+                <div class="bhog-item">🟡 बेसन के लड्डू</div>
+                <div class="bhog-item">🥞 मीठा चूरमा / रोट</div>
+                <div class="bhog-item">🌿 तुलसी दल</div>
+                <div class="bhog-item">🥥 नारियल</div>
+            </div>
+        </div>
+
+        <!-- Reading Materials (Accordions) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">पाठ व आरती संग्रह</h2>
+            </div>
+            
+            <button class="accordion"><i class="fa-solid fa-om"></i> श्री हनुमान चालीसा <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>॥ दोहा ॥</strong><br>
+                    श्रीगुरु चरन सरोज रज, निज मनु मुकुरु सुधारि।<br>
+                    बरनउँ रघुबर बिमल जसु, जो दायकु फल चारि॥<br>
+                    बुद्धिहीन तनु जानिके, सुमिरौं पवन-कुमार।<br>
+                    बल बुधि बिद्या देहु मोहिं, हरहु कलेस बिकार॥<br><br>
+                    <strong>॥ चौपाई ॥</strong><br>
+                    जय हनुमान ज्ञान गुन सागर।<br>
+                    जय कपीस तिहुँ लोक उजागर॥<br>
+                    राम दूत अतुलित बल धामा।<br>
+                    अंजनि-पुत्र पवनसुत नामा॥<br>
+                    महाबीर बिक्रम बजरंगी।<br>
+                    कुमति निवार सुमति के संगी॥<br>
+                    कंचन बरन बिराज सुबेसा।<br>
+                    कानन कुंडल कुंचित केसा॥<br>
+                    हाथ बज्र औ ध्वजा बिराजै।<br>
+                    काँधे मूँज जनेऊ साजै॥<br>
+                    संकर सुवन केसरीनंदन।<br>
+                    तेज प्रताप महा जग बंदन॥<br>
+                    बिद्यावान गुनी अति चातुर।<br>
+                    राम काज करिबे को आतुर॥<br>
+                    प्रभु चरित्र सुनिबे को रसिया।<br>
+                    राम लखन सीता मन बसिया॥<br>
+                    सूक्ष्म रूप धरि सियहिं दिखावा।<br>
+                    बिकट रूप धरि लंक जरावा॥<br>
+                    भीम रूप धरि असुर सँहारे।<br>
+                    रामचंद्र के काज सँवारे॥<br>
+                    लाय सजीवन लखन जियाये।<br>
+                    श्रीरघुबीर हरषि उर लाये॥<br>
+                    रघुपति कीन्ही बहुत बड़ाई।<br>
+                    तुम मम प्रिय भरतहि सम भाई॥<br>
+                    सहस बदन तुम्हरो जस गावैं।<br>
+                    अस कहि श्रीपति कंठ लगावैं॥<br>
+                    सनकादिक ब्रह्मादि मुनीसा।<br>
+                    नारद सारद सहित अहीसा॥<br>
+                    जम कुबेर दिगपाल जहाँ ते।<br>
+                    कबि कोबिद कहि सके कहाँ ते॥<br>
+                    तुम उपकार सुग्रीवहिं कीन्हा।<br>
+                    राम मिलाय राज पद दीन्हा॥<br>
+                    तुम्हरो मंत्र बिभीषन माना।<br>
+                    लंकेस्वर भए सब जग जाना॥<br>
+                    जुग सहस्र जोजन पर भानू।<br>
+                    लील्यो ताहि मधुर फल जानू॥<br>
+                    प्रभु मुद्रिका मेलि मुख माहीं।<br>
+                    जलधि लाँघि गये अचरज नाहीं॥<br>
+                    दुर्गम काज जगत के जेते।<br>
+                    सुगम अनुग्रह तुम्हरे तेते॥<br>
+                    राम दुआरे तुम रखवारे।<br>
+                    होत न आज्ञा बिनु पैसारे॥<br>
+                    सब सुख लहै तुम्हारी सरना।<br>
+                    तुम रच्छक काहू को डर ना॥<br>
+                    आपन तेज सम्हारो आपै।<br>
+                    तीनों लोक हाँक तें काँपै॥<br>
+                    भूत पिसाच निकट नहिं आवै।<br>
+                    महाबीर जब नाम सुनावै॥<br>
+                    नासै रोग हरै सब पीरा।<br>
+                    जपत निरंतर हनुमत बीरा॥<br>
+                    संकट तें हनुमान छुड़ावै।<br>
+                    मन क्रम बचन ध्यान जो लावै॥<br>
+                    सब पर राम तपस्वी राजा।<br>
+                    तिन के काज सकल तुम साजा॥<br>
+                    और मनोरथ जो कोई लावै।<br>
+                    सोइ अमित जीवन फल पावै॥<br>
+                    चारों जुग परताप तुम्हारा।<br>
+                    है परसिद्ध जगत उजियारा॥<br>
+                    साधु संत के तुम रखवारे।<br>
+                    असुर निकंदन राम दुलारे॥<br>
+                    अष्ट सिद्धि नौ निधि के दाता।<br>
+                    अस बर दीन जानकी माता॥<br>
+                    राम रसायन तुम्हरे पासा।<br>
+                    सदा रहो रघुपति के दासा॥<br>
+                    तुम्हरे भजन राम को पावै।<br>
+                    जनम जनम के दुख बिसरावै॥<br>
+                    अंत काल रघुबर पुर जाई।<br>
+                    जहाँ जन्म हरि-भक्त कहाई॥<br>
+                    और देवता चित्त न धरई।<br>
+                    हनुमत सेइ सर्ब सुख करई॥<br>
+                    संकट कटै मिटै सब पीरा।<br>
+                    जो सुमिरै हनुमत बलबीरा॥<br>
+                    जै जै जै हनुमान गोसाईं।<br>
+                    कृपा करहु गुरुदेव की नाईं॥<br>
+                    जो सत बार पाठ कर कोई।<br>
+                    छूटहि बंदि महा सुख होई॥<br>
+                    जो यह पढ़ै हनुमान चालीसा।<br>
+                    होय सिद्धि साखी गौरीसा॥<br>
+                    तुलसीदास सदा हरि चेरा।<br>
+                    कीजै नाथ हृदय महँ डेरा॥<br><br>
+                    <strong>॥ दोहा ॥</strong><br>
+                    पवनतनय संकट हरन, मंगल मूरति रूप।<br>
+                    राम लखन सीता सहित, हृदय बसहु सुर भूप॥
+                </div>
+            </div>
+
+            <button class="accordion"><i class="fa-solid fa-bell"></i> श्री हनुमान आरती <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>आरती कीजै हनुमान लला की।</strong><br>
+                    दुष्ट दलन रघुनाथ कला की॥<br><br>
+                    जाके बल से गिरिवर कांपै।<br>
+                    रोग दोष जाके निकट न झांपै॥<br>
+                    अंजनि पुत्र महा बलदाई।<br>
+                    सन्तन के प्रभु सदा सहाई॥<br>
+                    आरती कीजै हनुमान लला की...<br><br>
+                    दे बीरा रघुनाथ पठाए।<br>
+                    लंका जारि सिया सुधि लाए॥<br>
+                    लंका सो कोट समुद्र-सी खाई।<br>
+                    जात पवनसुत बार न लाई॥<br>
+                    आरती कीजै हनुमान लला की...<br><br>
+                    लंका जारि असुर संहारे।<br>
+                    सियारामजी के काज सँवारे॥<br>
+                    लक्ष्मण मूर्छित पड़े सकारे।<br>
+                    आनि संजीवन प्रान उबारे॥<br>
+                    आरती कीजै हनुमान लला की...<br><br>
+                    पैठि पाताल तोरि जम-कारे।<br>
+                    अहिरावण की भुजा उखारे॥<br>
+                    बाएं भुजा असुरदल मारे।<br>
+                    दाहिने भुजा सन्तजन तारे॥<br>
+                    आरती कीजै हनुमान लला की...<br><br>
+                    सुर नर मुनि आरती उतारें।<br>
+                    जय जय जय हनुमान उचारें॥<br>
+                    कंचन थार कपूर लौ छाई।<br>
+                    आरती करत अंजना माई॥<br>
+                    आरती कीजै हनुमान लला की...<br><br>
+                    जो हनुमानजी की आरती गावै।<br>
+                    बसि बैकुण्ठ परम पद पावै॥<br>
+                    आरती कीजै हनुमान लला की।<br>
+                    दुष्ट दलन रघुनाथ कला की॥
+                </div>
+            </div>
+        </div>
+
+        <!-- Celebration Message -->
+        <div style="background: linear-gradient(135deg, var(--primary), #bf360c); color: white; text-align: center; padding: 25px; border-radius: 20px; box-shadow: 0 10px 20px rgba(216, 67, 21, 0.3); margin-top: 10px;">
+            <div style="font-size: 22px; font-weight: 600; font-family: 'Yatra One', cursive; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+                "संकट कटै मिटै सब पीरा,<br>जो सुमिरै हनुमत बलबीरा।<br>हनुमान जन्मोत्सव की हार्दिक शुभकामनाएं! 🙏🚩"
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Accordion Logic
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+</script>
 
 </body>
 </html>

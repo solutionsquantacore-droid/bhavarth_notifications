@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दशहरा (विजयादशमी)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #c21807; /* Deep Red/Crimson */
+            --secondary: #ffb300; /* Gold */
+            --bg-light: #fffdf7;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --card-bg: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Mukta', sans-serif;
+            background-color: #f5f5f5;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 30px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(194, 24, 7, 0.9) 0%, rgba(0,0,0,0) 100%);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero-title {
+            font-family: 'Yatra One', cursive;
+            font-size: 42px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: var(--secondary);
+        }
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* Content Wrapper */
+        .content { padding: 20px; margin-top: -20px; position: relative; z-index: 10; }
+
+        /* Premium Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(194, 24, 7, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed rgba(249, 168, 37, 0.4);
+            padding-bottom: 10px;
+        }
+        .card-header i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 12px;
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Lists */
+        .vidhi-list { list-style: none; }
+        .vidhi-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        .vidhi-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+
+        /* Mantra Box */
+        .mantra-box {
+            background: #ffebee;
+            border-left: 5px solid var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .mantra-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Yatra One', cursive;
+            line-height: 1.8;
+        }
+
+        /* Accordion */
+        .accordion {
+            background-color: #fff9c4;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid rgba(249, 168, 37, 0.5);
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .active, .accordion:hover { background-color: #fff59d; }
+        .panel {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 10px 10px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        .scroll-text { 
+            max-height: 300px; 
+            overflow-y: auto; 
+            padding: 15px 0;
+            text-align: center; 
+        }
+
+        /* Bhog Section */
+        .bhog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .bhog-item {
+            background: #fff3e0;
+            color: #c21807;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #ffcc80;
+        }
+
+        /* Share Card */
+        .share-card {
+            background: linear-gradient(135deg, var(--primary), #7f0000);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(194, 24, 7, 0.4);
+        }
+        .share-text {
+            font-size: 18px;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.2s;
+        }
+        .btn:active { opacity: 0.8; }
+        
+        .toast {
+            visibility: hidden;
+            min-width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 25px;
+            padding: 12px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 14px;
+        }
+        .toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/dusshera.webp" alt="Dussehra">
+        <div class="hero-overlay">
+            <h1 class="hero-title">दशहरा</h1>
+            <div class="hero-subtitle">बुराई पर अच्छाई और असत्य पर सत्य की जीत का महापर्व</div>
+        </div>
+    </div>
+
+    <div class="content">
+        
+        <!-- Intro & Significance -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-om"></i>
+                <h2 class="card-title">विजयादशमी का महत्व</h2>
+            </div>
+            <p style="color: var(--text-muted); text-align: justify; margin-bottom: 15px;">
+                दशहरा या विजयादशमी हिंदुओं का एक प्रमुख त्योहार है। यह अश्विन मास के शुक्ल पक्ष की दशमी तिथि को मनाया जाता है। पौराणिक मान्यता के अनुसार, इसी दिन मर्यादा पुरुषोत्तम भगवान राम ने रावण का वध किया था और माँ दुर्गा ने महिषासुर का संहार किया था।
+            </p>
+            <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 10px;">प्रमुख मान्यताएं:</h3>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-bow-arrow"></i> यह पर्व अहंकार, क्रोध और अज्ञानता रूपी रावण के अंत का प्रतीक है।</li>
+                <li><i class="fa-solid fa-seedling"></i> इस दिन शमी वृक्ष की पूजा करने से विजय और सुख-समृद्धि की प्राप्ति होती है।</li>
+                <li><i class="fa-solid fa-dove"></i> दशहरे के दिन नीलकंठ पक्षी के दर्शन अत्यंत शुभ और भाग्यशाली माने जाते हैं।</li>
+            </ul>
+        </div>
+
+
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/vijay_dashami.webp" alt="Vijay Dashami" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; object-fit: cover;">
+        <!-- Puja Vidhi -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-hands-praying"></i>
+                <h2 class="card-title">पूजा विधि व परंपरा</h2>
+            </div>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-check-circle"></i> <strong>शस्त्र व अपराजिता पूजा:</strong> इस दिन विशेष रूप से शस्त्रों, वाहनों और देवी अपराजिता की पूजा की जाती है।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>शमी पूजन:</strong> संध्या के समय शमी वृक्ष के नीचे दीपक जलाएं और प्रार्थना करें।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>रावण दहन:</strong> रावण, कुंभकर्ण और मेघनाद के पुतलों का दहन कर बुराई के अंत का जश्न मनाएं।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>बड़ों का आशीर्वाद:</strong> परिवार के बड़े-बुजुर्गों के चरण स्पर्श कर उनका आशीर्वाद प्राप्त करें।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>पान खाना:</strong> दशहरे के दिन पान खाने और खिलाने की विशेष परंपरा है, जो प्रेम और सम्मान का प्रतीक है।</li>
+            </ul>
+        </div>
+
+        <!-- Mantra -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-music"></i>
+                <h2 class="card-title">विजय मंत्र</h2>
+            </div>
+            <div class="mantra-box">
+                <div class="mantra-text">
+                    "श्री राम राम रामेति रमे रामे मनोरमे।<br>सहस्रनाम तत्तुल्यं रामनाम वरानने॥"
+                </div>
+            </div>
+        </div>
+
+
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/vijay_dashami_2.webp" alt="Shree Ram" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; object-fit: cover;">
+        <!-- Bhog / Prasad -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-bowl-rice"></i>
+                <h2 class="card-title">प्रमुख व्यंजन एवं प्रसाद</h2>
+            </div>
+            <div class="bhog-grid">
+                <div class="bhog-item">🥨 जलेबी</div>
+                <div class="bhog-item">🥟 फाफड़ा</div>
+                <div class="bhog-item">🍃 पान</div>
+                <div class="bhog-item">🥣 खीर</div>
+                <div class="bhog-item">🍎 ताजे फल</div>
+            </div>
+        </div>
+
+        <!-- Reading Materials (Accordions) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">पाठ एवं स्तुति</h2>
+            </div>
+            
+            <button class="accordion"><i class="fa-solid fa-book"></i> श्री राम स्तुति <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>श्री रामचन्द्र कृपालु भजु मन हरण भवभय दारुणं।</strong><br>
+                    नवकंज लोचन, कंज मुख, कर कंज, पद कंजारुणं॥<br><br>
+                    कंदर्प अगणित अमित छबि, नवनील नीरद सुन्दरं।<br>
+                    पट पीत मानहु तडित रुचि शुचि नौमि जनक सुतावरं॥<br><br>
+                    भजु दीनबंधु दिनेश दानव दैत्यवंश निकन्दनं।<br>
+                    रघुनंद आनंदकंद कौशलचंद दशरथ नन्दनं॥<br><br>
+                    शिर मुकुट कुंडल तिलक चारु उदार अंग विभूषणं।<br>
+                    आजानुभुज शर चाप धर, संग्राम जित खरदूषणं॥<br><br>
+                    इति वदति तुलसीदास शंकर शेष मुनि मन रंजनं।<br>
+                    मम हृदय कंज निवास कुरु, कामादि खलदल गंजनं॥
+                </div>
+            </div>
+
+            <button class="accordion"><i class="fa-solid fa-om"></i> श्री हनुमान चालीसा <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>श्रीगुरु चरन सरोज रज निज मनु मुकुरु सुधारि।</strong><br>
+                    बरनउँ रघुबर बिमल जसु जो दायकु फल चारि॥<br>
+                    बुद्धिहीन तनु जानिके सुमिरौं पवनकुमार।<br>
+                    बल बुधि बिद्या देहु मोहिं हरहु कलेस बिकार॥<br><br>
+                    जय हनुमान ज्ञान गुन सागर।<br>
+                    जय कपीस तिहुँ लोक उजागर॥<br>
+                    राम दूत अतुलित बल धामा।<br>
+                    अंजनि पुत्र पवनसुत नामा॥<br><br>
+                    महाबीर बिक्रम बजरंगी।<br>
+                    कुमति निवार सुमति के संगी॥<br>
+                    कंचन बरन बिराज सुबेसा।<br>
+                    कानन कुंडल कुंचित केसा॥<br><br>
+                    हाथ बज्र औ ध्वजा बिराजै।<br>
+                    काँधे मूँज जनेऊ साजै॥<br>
+                    संकर सुवन केसरीनंदन।<br>
+                    तेज प्रताप महा जग बंदन॥<br><br>
+                    बिद्यावान गुनी अति चातुर।<br>
+                    राम काज करिबे को आतुर॥<br>
+                    प्रभु चरित्र सुनिबे को रसिया।<br>
+                    राम लखन सीता मन बसिया॥<br><br>
+                    सूक्ष्म रूप धरि सियहिं दिखावा।<br>
+                    बिकट रूप धरि लंक जरावा॥<br>
+                    भीम रूप धरि असुर सँहारे।<br>
+                    रामचंद्र के काज सँवारे॥<br><br>
+                    लाय सजीवन लखन जियाये।<br>
+                    श्रीरघुबीर हरषि उर लाये॥<br>
+                    रघुपति कीन्ही बहुत बड़ाई।<br>
+                    तुम मम प्रिय भरतहि सम भाई॥<br><br>
+                    <em>(सम्पूर्ण चालीसा का पाठ करें)</em>
+                </div>
+            </div>
+        </div>
+
+        <!-- Share Card -->
+        <div class="share-card">
+            <div class="share-text" id="shareText">
+                "बुराई पर अच्छाई और असत्य पर सत्य की जीत के महापर्व विजयादशमी की आपको हार्दिक शुभकामनाएं! 🏹 जय श्री राम!"
+            </div>
+            <button class="btn" onclick="shareWishes()">
+                <i class="fa-solid fa-share-nodes"></i> शुभकामनाएं साझा करें
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div id="toast" class="toast">शुभकामनाएं कॉपी हो गईं!</div>
+
+<script>
+    // Accordion Logic
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+
+    // Share Logic
+    function shareWishes() {
+        var shareText = document.getElementById("shareText").innerText;
+        if (navigator.share) {
+            navigator.share({
+                title: 'विजयादशमी (दशहरा)',
+                text: shareText
+            }).catch(console.error);
+        } else {
+            navigator.clipboard.writeText(shareText).then(function() {
+                showToast("शुभकामनाएं कॉपी हो गईं! अब आप इसे पेस्ट कर सकते हैं।");
+            });
+        }
+    }
+
+    function showToast(msg) {
+        var toast = document.getElementById("toast");
+        toast.innerText = msg;
+        toast.className = "toast show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+    }
+</script>
+
+</body>
+</html>

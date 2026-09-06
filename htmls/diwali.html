@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दीपावली</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #D84315;
+            --accent-color: #F9A826;
+            --text-dark: #3E2723;
+            --text-light: #5D4037;
+            --bg-color: #FFF3E0;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Mukta', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(249, 168, 38, 0.3);
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        .content-section {
+            padding: 30px 25px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 5px;
+        }
+
+        .story {
+            font-size: 18px;
+            color: var(--text-light);
+            text-align: justify;
+            margin-bottom: 25px;
+            text-justify: inter-word;
+        }
+
+        .conclusion-box {
+            background: linear-gradient(135deg, rgba(249, 168, 38, 0.1), rgba(216, 67, 21, 0.05));
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .conclusion-box p {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Banner Image (Hosted on GitHub Raw) -->
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/diwali.webp" alt="दीपावली" class="hero-banner">
+
+        <div class="content-section">
+            <!-- Title -->
+            <h1>दीपावली</h1>
+
+            <!-- Story -->
+            <div class="story">
+                दीपावली अंधकार पर प्रकाश की विजय का महापर्व है। इस दिन मर्यादा पुरुषोत्तम भगवान श्रीराम 14 वर्ष का वनवास काटकर और लंकापति रावण का वध करके अयोध्या लौटे थे। उनके आगमन की खुशी में अयोध्यावासियों ने पूरी नगरी को दीपों से सजाया था। इसके अलावा, इसी दिन माता लक्ष्मी समुद्र मंथन से प्रकट हुई थीं, इसलिए इस दिन माता लक्ष्मी और भगवान गणेश की विशेष पूजा की जाती है, ताकि घर में सुख, समृद्धि और शांति का वास हो।
+            </div>
+
+            <!-- Conclusion -->
+            <div class="conclusion-box">
+                <p>दीपों का यह पर्व आपके जीवन से अज्ञान रूपी अंधकार को मिटाकर ज्ञान, सफलता और समृद्धि का प्रकाश लाए। शुभ दीपावली!</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            भावार्थ प्रीमियम • दिव्य और अलौकिक
+        </div>
+    </div>
+
+</body>
+</html>

@@ -6,131 +6,441 @@
     <title>राम नवमी</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #D84315;
-            --accent-color: #F9A826;
-            --text-dark: #3E2723;
-            --text-light: #5D4037;
-            --bg-color: #FFF3E0;
-            --white: #FFFFFF;
+            --primary: #d84315; /* Deep Saffron/Orange */
+            --secondary: #ffb300; /* Gold */
+            --bg-light: #fffdf7;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --card-bg: #ffffff;
         }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Mukta', sans-serif;
-            background-color: var(--bg-color);
+            background-color: #f5f5f5;
             color: var(--text-dark);
             line-height: 1.6;
-            padding: 20px;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(249, 168, 38, 0.3);
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 30px;
         }
 
-        .hero-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 4px solid var(--accent-color);
-        }
-
-        .content-section {
-            padding: 30px 25px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            font-size: 28px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
+        /* Hero Section */
+        .hero {
             position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(216, 67, 21, 0.9) 0%, rgba(0,0,0,0) 100%);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero-title {
+            font-family: 'Yatra One', cursive;
+            font-size: 42px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: var(--secondary);
+        }
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            opacity: 0.9;
         }
 
-        h1::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 5px;
-        }
+        /* Content Wrapper */
+        .content { padding: 20px; margin-top: -20px; position: relative; z-index: 10; }
 
-        .story {
-            font-size: 18px;
-            color: var(--text-light);
-            text-align: justify;
-            margin-bottom: 25px;
-            text-justify: inter-word;
-        }
-
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(249, 168, 38, 0.1), rgba(216, 67, 21, 0.05));
-            border-left: 5px solid var(--primary-color);
+        /* Premium Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
             padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(216, 67, 21, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed rgba(249, 168, 37, 0.4);
+            padding-bottom: 10px;
+        }
+        .card-header i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 12px;
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Lists */
+        .vidhi-list { list-style: none; }
+        .vidhi-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        .vidhi-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+
+        /* Mantra Box */
+        .mantra-box {
+            background: #fff3e0;
+            border-left: 5px solid var(--primary);
+            padding: 15px;
             border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .mantra-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Yatra One', cursive;
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        /* Accordion */
+        .accordion {
+            background-color: #fff9c4;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid rgba(249, 168, 37, 0.5);
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-top: 10px;
         }
-
-        .conclusion-box p {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-align: center;
-            margin: 0;
+        .active, .accordion:hover { background-color: #fff59d; }
+        .panel {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 10px 10px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        .scroll-text { 
+            max-height: 300px; 
+            overflow-y: auto; 
+            padding: 15px 0;
+            text-align: center; 
         }
 
-        .footer {
-            text-align: center;
-            padding: 15px;
-            background-color: var(--primary-color);
-            color: var(--white);
+        /* Bhog Section */
+        .bhog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .bhog-item {
+            background: #fff3e0;
+            color: #d84315;
+            padding: 8px 15px;
+            border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
-            letter-spacing: 1px;
+            border: 1px solid #ffcc80;
         }
+
+        /* Share Card */
+        .share-card {
+            background: linear-gradient(135deg, var(--primary), #bf360c);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(216, 67, 21, 0.4);
+        }
+        .share-text {
+            font-size: 18px;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.2s;
+        }
+        .btn:active { opacity: 0.8; }
+        
+        .toast {
+            visibility: hidden;
+            min-width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 25px;
+            padding: 12px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 14px;
+        }
+        .toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Banner Image (Hosted on GitHub Raw) -->
-        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/shree_ram_navami.webp" alt="राम नवमी" class="hero-banner">
-
-        <div class="content-section">
-            <!-- Title -->
-            <h1>राम नवमी</h1>
-
-            <!-- Story -->
-            <div class="story">
-                राम नवमी का पावन पर्व मर्यादा पुरुषोत्तम भगवान श्रीराम के जन्म के उपलक्ष्य में मनाया जाता है। चैत्र मास के शुक्ल पक्ष की नवमी तिथि को अयोध्या में राजा दशरथ और माता कौशल्या के घर भगवान राम का अवतार हुआ था। श्रीराम का जीवन हमें धर्म, मर्यादा, सत्य और कर्तव्यनिष्ठा का पालन करने की प्रेरणा देता है। उन्होंने अपने आदर्श चरित्र से संपूर्ण मानव जाति के सामने एक उत्कृष्ट उदाहरण प्रस्तुत किया।
-            </div>
-
-            <!-- Conclusion -->
-            <div class="conclusion-box">
-                <p>भगवान श्रीराम के आदर्शों को अपने जीवन में अपनाएं। राम नवमी का यह पर्व आपके जीवन में सुख, शांति और धर्म का संचार करे।</p>
-            </div>
-        </div>
-        
-        <div class="footer">
-            भावार्थ प्रीमियम • दिव्य और अलौकिक
+<div class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/shree_ram_navami.webp" alt="Shree Ram Navami">
+        <div class="hero-overlay">
+            <h1 class="hero-title">राम नवमी</h1>
+            <div class="hero-subtitle">मर्यादा पुरुषोत्तम भगवान श्रीराम का जन्मोत्सव</div>
         </div>
     </div>
+
+    <div class="content">
+        
+        <!-- Intro & Significance -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-om"></i>
+                <h2 class="card-title">राम नवमी का महत्व</h2>
+            </div>
+            <p style="color: var(--text-muted); text-align: justify; margin-bottom: 15px;">
+                चैत्र मास के शुक्ल पक्ष की नवमी तिथि को अयोध्या में राजा दशरथ और माता कौशल्या के घर भगवान राम का अवतार हुआ था। यह दिन मर्यादा, सत्य और धर्म की स्थापना का प्रतीक है।
+            </p>
+            <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 10px;">श्रीराम की महिमा:</h3>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-sun"></i> भगवान राम को भगवान विष्णु का सातवां अवतार माना जाता है।</li>
+                <li><i class="fa-solid fa-heart"></i> इनका जीवन हमें आदर्श पुत्र, भाई और राजा बनने की प्रेरणा देता है।</li>
+                <li><i class="fa-solid fa-peace"></i> राम नाम के स्मरण मात्र से जीवन के सभी कष्ट और पाप नष्ट हो जाते हैं।</li>
+            </ul>
+        </div>
+
+        <!-- Puja Vidhi -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-hands-praying"></i>
+                <h2 class="card-title">पूजा विधि</h2>
+            </div>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-check-circle"></i> <strong>स्नान एवं संकल्प:</strong> प्रातःकाल स्नान कर स्वच्छ वस्त्र धारण करें और व्रत का संकल्प लें।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>स्थापना:</strong> राम दरबार (श्रीराम, माता सीता, लक्ष्मण जी और हनुमान जी) की प्रतिमा स्थापित करें।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>अभिषेक:</strong> भगवान को पंचामृत से स्नान कराएं और चंदन का तिलक लगाएं।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>पुष्प एवं तुलसी:</strong> पीले फूल और तुलसी दल विशेष रूप से अर्पित करें।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>पाठ:</strong> राम रक्षा स्तोत्र या रामचरितमानस का पाठ करें।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>आरती:</strong> अंत में घी के दीपक से कपूर सहित भगवान की आरती करें।</li>
+            </ul>
+        </div>
+
+        <!-- Mantra -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-music"></i>
+                <h2 class="card-title">श्रीराम मंत्र</h2>
+            </div>
+            <div class="mantra-box">
+                <div class="mantra-text" style="font-size: 18px; line-height: 1.8;">
+                    "राम रामेति रामेति, रमे रामे मनोरमे।<br>
+                    सहस्रनाम तत्तुल्यं, रामनाम वरानने॥"
+                </div>
+            </div>
+        </div>
+
+        <!-- Bhog / Prasad -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-bowl-rice"></i>
+                <h2 class="card-title">भोग एवं प्रसाद</h2>
+            </div>
+            <div class="bhog-grid">
+                <div class="bhog-item">🌾 पंजिरी</div>
+                <div class="bhog-item">🥛 पंचामृत</div>
+                <div class="bhog-item">🌿 तुलसी दल</div>
+                <div class="bhog-item">🍎 ताजे फल</div>
+                <div class="bhog-item">🍮 मिष्ठान</div>
+            </div>
+        </div>
+
+        <!-- Reading Materials (Accordions) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">श्रीराम स्तुति एवं चालीसा</h2>
+            </div>
+            
+            <button class="accordion"><i class="fa-solid fa-bell"></i> श्री राम स्तुति <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>श्री रामचन्द्र कृपालु भजु मन हरण भवभय दारुणं।</strong><br>
+                    नवकंज लोचन, कंज मुख, कर कंज, पद कंजारुणं॥<br><br>
+                    कंदर्प अगणित अमित छबि, नवनील नीरद सुन्दरं।<br>
+                    पट पीत मानहु तडित रुचि शुचि नौमि जनक सुतावरं॥<br><br>
+                    भजु दीनबंधु दिनेश दानव दैत्यवंश निकन्दनं।<br>
+                    रघुनंद आनंदकंद कौशलचंद दशरथ नन्दनं॥<br><br>
+                    शिर मुकुट कुंडल तिलक चारु उदार अंग विभूषणं।<br>
+                    आजानुभुज शर चाप धर, संग्राम जित खरदूषणं॥<br><br>
+                    इति वदति तुलसीदास शंकर शेष मुनि मन रंजनं।<br>
+                    मम हृदय कंज निवास कुरु, कामादि खलदल गंजनं॥<br><br>
+                    मन जाहिं राच्यो मिलिहि सो वर सहज सुन्दर सांवरो।<br>
+                    करुणा निधान सुजान शील सनेह जानत रावरो॥<br><br>
+                    एही भांति गौरी असीस सुनि सिय सहित हिय हरषीं अली।<br>
+                    तुलसी भवानिहि पूजि पुनि पुनि मुदित मन मन्दिर चली॥
+                </div>
+            </div>
+
+            <button class="accordion"><i class="fa-solid fa-book"></i> श्री राम चालीसा <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>श्री रघुबीर भक्त हितकारी।</strong><br>
+                    सुनि लीजै प्रभु अरज हमारी॥<br><br>
+                    निशि दिन ध्यान धरै जो कोई।<br>
+                    ता सम भक्त और नहिं होई॥<br><br>
+                    ध्यान धरे शिवजी मन माहीं।<br>
+                    ब्रह्मा इन्द्र पार नहिं पाहीं॥<br><br>
+                    दूत तुम्हार वीर हनुमाना।<br>
+                    जासु प्रभाव तिहूँ पुर जाना॥<br><br>
+                    तव भुज दण्ड प्रचण्ड कृपाला।<br>
+                    रावण मारि सुरन प्रतिपाला॥<br><br>
+                    तुम अनाथ के नाथ गोसाईं।<br>
+                    दीनन के हो सदा सहाई॥<br><br>
+                    ब्रह्मादिक तव पार न पावैं।<br>
+                    सदा ईश तुम्हरो यश गावैं॥<br><br>
+                    चारिउ वेद भरत पुरान।<br>
+                    तुम जग के स्वामी भगवान॥<br><br>
+                    बाहु दण्ड शर चाप धरयौ रे।<br>
+                    मारि वालि सुग्रीव तरयौ रे॥<br><br>
+                    चरण कमल बंदी सुर त्राता।<br>
+                    विश्वनाथ तुम त्रिभुवन दाता॥<br><br>
+                    तुम प्रताप बल अमित अनंता।<br>
+                    अन्धकार मिटावहु संता॥<br><br>
+                    जो जन तुम्हरी शरण पधारै।<br>
+                    ताको पाप ताप सब टारै॥<br><br>
+                    जय जय जय श्री रामचन्द्र जी।<br>
+                    करहु कृपा भक्तन पर स्वामि॥
+                </div>
+            </div>
+        </div>
+
+        <!-- Share Card -->
+        <div class="share-card">
+            <div class="share-text" id="shareText">
+                "मर्यादा पुरुषोत्तम भगवान श्रीराम आपके जीवन में सुख, शांति और समृद्धि का संचार करें। राम नवमी की हार्दिक शुभकामनाएं! 🙏 जय श्रीराम!"
+            </div>
+            <button class="btn" onclick="shareWishes()">
+                <i class="fa-solid fa-share-nodes"></i> शुभकामनाएं साझा करें
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div id="toast" class="toast">शुभकामनाएं कॉपी हो गईं!</div>
+
+<script>
+    // Accordion Logic
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+
+    // Share Logic (Web Share API)
+    function shareWishes() {
+        var shareText = document.getElementById("shareText").innerText;
+        if (navigator.share) {
+            navigator.share({
+                title: 'राम नवमी',
+                text: shareText
+            }).catch(console.error);
+        } else {
+            // Fallback
+            navigator.clipboard.writeText(shareText).then(function() {
+                showToast("शुभकामनाएं कॉपी हो गईं! अब आप इसे पेस्ट कर सकते हैं।");
+            });
+        }
+    }
+
+    function showToast(msg) {
+        var toast = document.getElementById("toast");
+        toast.innerText = msg;
+        toast.className = "toast show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+    }
+</script>
 
 </body>
 </html>

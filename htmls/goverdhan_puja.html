@@ -6,131 +6,459 @@
     <title>गोवर्धन पूजा</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #D84315;
-            --accent-color: #F9A826;
-            --text-dark: #3E2723;
-            --text-light: #5D4037;
-            --bg-color: #FFF3E0;
-            --white: #FFFFFF;
+            --primary: #2e7d32; /* Deep Nature Green */
+            --secondary: #fbc02d; /* Krishna Gold */
+            --bg-light: #f1f8e9;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
         }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Mukta', sans-serif;
-            background-color: var(--bg-color);
+            background-color: #e8f5e9;
             color: var(--text-dark);
             line-height: 1.6;
-            padding: 20px;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
-            background-color: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(249, 168, 38, 0.3);
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 30px;
         }
 
-        .hero-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-bottom: 4px solid var(--accent-color);
-        }
-
-        .content-section {
-            padding: 30px 25px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            font-size: 28px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
+        /* Hero Section */
+        .hero {
             position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(46, 125, 50, 0.9) 0%, rgba(46, 125, 50, 0.4) 50%, rgba(0,0,0,0) 100%);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero-title {
+            font-family: 'Yatra One', cursive;
+            font-size: 42px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #fff9c4;
+        }
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            opacity: 0.9;
         }
 
-        h1::after {
-            content: '';
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-            display: block;
-            margin: 10px auto 0;
-            border-radius: 5px;
-        }
+        /* Content Wrapper */
+        .content { padding: 20px; margin-top: -20px; position: relative; z-index: 10; }
 
-        .story {
-            font-size: 18px;
-            color: var(--text-light);
-            text-align: justify;
-            margin-bottom: 25px;
-            text-justify: inter-word;
-        }
-
-        .conclusion-box {
-            background: linear-gradient(135deg, rgba(249, 168, 38, 0.1), rgba(216, 67, 21, 0.05));
-            border-left: 5px solid var(--primary-color);
+        /* Premium Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
             padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(46, 125, 50, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed rgba(251, 192, 45, 0.6);
+            padding-bottom: 10px;
+        }
+        .card-header i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 12px;
+        }
+        .card-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Lists */
+        .vidhi-list { list-style: none; }
+        .vidhi-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        .vidhi-list li i {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+
+        /* Story Text */
+        .story-text {
+            color: var(--text-muted);
+            text-align: justify;
+            margin-bottom: 15px;
+            background-color: #f1f8e9;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #c5e1a5;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Mantra Box */
+        .mantra-box {
+            background: #e8f5e9;
+            border-left: 5px solid var(--primary);
+            padding: 15px;
             border-radius: 8px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        .mantra-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Yatra One', cursive;
+            line-height: 1.8;
+        }
+
+        /* Accordion */
+        .accordion {
+            background-color: #fff9c4;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: 1px solid rgba(251, 192, 45, 0.5);
+            border-radius: 10px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.4s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-top: 10px;
         }
-
-        .conclusion-box p {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-align: center;
-            margin: 0;
+        .active, .accordion:hover { background-color: #fff59d; }
+        .panel {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 10px 10px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        .scroll-text { 
+            max-height: 300px; 
+            overflow-y: auto; 
+            padding: 15px 0;
+            text-align: center; 
         }
 
-        .footer {
-            text-align: center;
-            padding: 15px;
-            background-color: var(--primary-color);
-            color: var(--white);
+        /* Bhog Section */
+        .bhog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .bhog-item {
+            background: #fdf5f6;
+            color: #2e7d32;
+            padding: 8px 15px;
+            border-radius: 20px;
             font-size: 14px;
             font-weight: 600;
-            letter-spacing: 1px;
+            border: 1px solid #a5d6a7;
+            background-color: #e8f5e9;
         }
+
+        /* Share Card */
+        .share-card {
+            background: linear-gradient(135deg, var(--primary), #1b5e20);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.3);
+        }
+        .share-text {
+            font-size: 18px;
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.2s;
+        }
+        .btn:active { opacity: 0.8; }
+        
+        .toast {
+            visibility: hidden;
+            min-width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 25px;
+            padding: 12px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 14px;
+        }
+        .toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Banner Image (Hosted on GitHub Raw) -->
-        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/goverdhan_puja.webp" alt="गोवर्धन पूजा" class="hero-banner">
-
-        <div class="content-section">
-            <!-- Title -->
-            <h1>गोवर्धन पूजा</h1>
-
-            <!-- Story -->
-            <div class="story">
-                गोवर्धन पूजा, जिसे अन्नकूट भी कहा जाता है, दीपावली के अगले दिन मनाई जाती है। यह पर्व प्रकृति और मानव के बीच के गहरे संबंध को दर्शाता है। पौराणिक कथा के अनुसार, देवराज इंद्र के अहंकार को तोड़ने और ब्रजवासियों को उनके प्रकोप (मूसलाधार वर्षा) से बचाने के लिए भगवान श्रीकृष्ण ने अपनी छोटी उंगली पर विशाल गोवर्धन पर्वत को उठा लिया था। इस दिन भक्त गायों की पूजा करते हैं और भगवान को छप्पन भोग अर्पित कर उनका आभार व्यक्त करते हैं।
-            </div>
-
-            <!-- Conclusion -->
-            <div class="conclusion-box">
-                <p>भगवान श्रीकृष्ण की असीम कृपा और आशीर्वाद आप पर सदैव बना रहे। गोवर्धन पूजा का यह पावन पर्व आपके जीवन में सुख, शांति और समृद्धि लाए।</p>
-            </div>
-        </div>
-        
-        <div class="footer">
-            भावार्थ प्रीमियम • दिव्य और अलौकिक
+<div class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/goverdhan_puja.webp" alt="Goverdhan Puja">
+        <div class="hero-overlay">
+            <h1 class="hero-title">गोवर्धन पूजा</h1>
+            <div class="hero-subtitle">प्रकृति, गौ माता और भगवान श्रीकृष्ण की उपासना का पर्व</div>
         </div>
     </div>
+
+    <div class="content">
+        
+        <!-- Intro & Significance -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-leaf"></i>
+                <h2 class="card-title">अन्नकूट व गोवर्धन पूजा</h2>
+            </div>
+            <p style="color: var(--text-muted); text-align: justify; margin-bottom: 15px;">
+                गोवर्धन पूजा (अन्नकूट), दीपावली के ठीक अगले दिन कार्तिक मास के शुक्ल पक्ष की प्रतिपदा को मनाई जाती है। यह पावन त्योहार हमें प्रकृति और गौ माता के प्रति कृतज्ञता व्यक्त करना सिखाता है।
+            </p>
+            <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 10px;">पर्व का महत्व:</h3>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-star"></i> यह अहंकार पर विनम्रता और विश्वास की विजय का प्रतीक है।</li>
+                <li><i class="fa-solid fa-star"></i> गोवर्धन पर्वत और गायों की पूजा करने से घर में अन्न और धन की कभी कमी नहीं होती।</li>
+            </ul>
+        </div>
+
+        <!-- Story -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">गोवर्धन पूजा की पौराणिक कथा</h2>
+            </div>
+            <div class="story-text">
+                पौराणिक कथा के अनुसार, प्राचीन काल में ब्रजवासी देवराज इंद्र की पूजा किया करते थे, क्योंकि उनका मानना था कि इंद्र की कृपा से ही बारिश होती है। लेकिन भगवान श्रीकृष्ण ने उन्हें समझाया कि गोवर्धन पर्वत और गौ माता ही उनके जीवन का आधार हैं, क्योंकि वे उनके पशुओं को चारा प्रदान करते हैं। इसलिए उन्हें इंद्र की जगह गोवर्धन पर्वत की पूजा करनी चाहिए।<br><br>
+                जब ब्रजवासियों ने श्रीकृष्ण की बात मानकर गोवर्धन पर्वत की पूजा शुरू की, तो देवराज इंद्र क्रोधित हो गए। अपने अपमान का बदला लेने के लिए इंद्र ने ब्रज में मूसलाधार बारिश और तूफान ला दिया, जिससे ब्रज डूबने लगा।<br><br>
+                तब भगवान श्रीकृष्ण ने ब्रजवासियों की रक्षा के लिए अपनी सबसे छोटी उंगली (कनिष्ठा) पर पूरे गोवर्धन पर्वत को उठा लिया। सभी ब्रजवासी सात दिन और सात रात तक पर्वत के नीचे सुरक्षित रहे। अंततः, इंद्र का अहंकार टूट गया और उन्होंने भगवान श्रीकृष्ण से क्षमा मांगी। उसी दिन से हर साल गोवर्धन पूजा की परंपरा आरंभ हुई।
+            </div>
+        </div>
+
+
+        <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/goverdhan_parvat.webp" alt="Goverdhan Parvat" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px; object-fit: cover;">
+        <!-- Puja Vidhi -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-hands-praying"></i>
+                <h2 class="card-title">पूजा विधि व परंपरा</h2>
+            </div>
+            <ul class="vidhi-list">
+                <li><i class="fa-solid fa-check-circle"></i> <strong>गोवर्धन पर्वत बनाना:</strong> सुबह उठकर घर के आंगन में गाय के गोबर से गोवर्धन पर्वत और भगवान कृष्ण की आकृति बनाएं।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>शृंगार व पूजन:</strong> गोवर्धन जी को फूल, रोली, कुमकुम और अक्षत से सजाएं और दीपक जलाएं।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>अन्नकूट (छप्पन भोग):</strong> भगवान को विभिन्न प्रकार के पकवानों, सब्जियों और मिष्ठान का भोग लगाएं, जिसे अन्नकूट कहा जाता है।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>परिक्रमा:</strong> सपरिवार गोवर्धन पर्वत की सात बार परिक्रमा करें और जल अर्पित करें।</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>गौ पूजन:</strong> गौ माता को स्नान कराकर उन्हें चारा और मिठाई खिलाएं।</li>
+            </ul>
+        </div>
+
+        <!-- Mantra -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-music"></i>
+                <h2 class="card-title">श्री कृष्ण व गोवर्धन मंत्र</h2>
+            </div>
+            <div class="mantra-box">
+                <div class="mantra-text">
+                    "श्री कृष्ण गोविंद हरे मुरारी।<br>हे नाथ नारायण वासुदेवा॥"
+                </div>
+            </div>
+        </div>
+
+        <!-- Bhog / Prasad -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-bowl-rice"></i>
+                <h2 class="card-title">अन्नकूट / छप्पन भोग</h2>
+            </div>
+            <div class="bhog-grid">
+                <div class="bhog-item">🍛 कढ़ी-चावल</div>
+                <div class="bhog-item">🥘 मिक्स सब्जी (अन्नकूट)</div>
+                <div class="bhog-item">🥞 मालपुआ</div>
+                <div class="bhog-item">🫓 पूरी-सब्जी</div>
+                <div class="bhog-item">🥛 पंचामृत</div>
+            </div>
+        </div>
+
+        <!-- Reading Materials (Accordions) -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa-solid fa-book-open"></i>
+                <h2 class="card-title">आरती संग्रह</h2>
+            </div>
+            
+            <button class="accordion"><i class="fa-solid fa-bell"></i> श्री गोवर्धन महाराज आरती <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>श्री गोवर्धन महाराज, ओ महाराज,</strong><br>
+                    तेरे माथे मुकुट विराज रहेओ।<br><br>
+                    तोपे पान चढ़े तोपे फूल चढ़े,<br>
+                    तोपे चढ़े दूध की धार।<br>
+                    तेरे माथे मुकुट विराज रहेओ॥<br><br>
+                    तेरी सात कोस की परिकम्मा,<br>
+                    और चकलेश्वर विश्राम।<br>
+                    तेरे माथे मुकुट विराज रहेओ॥<br><br>
+                    तेरे गले में कण्ठी कमल की,<br>
+                    तोपे श्याम जुगल झुल रहे।<br>
+                    तेरे माथे मुकुट विराज रहेओ॥<br><br>
+                    तेरी मानसी गंगा बनी रहे,<br>
+                    और कुण्ड कदम की छाँव।<br>
+                    तेरे माथे मुकुट विराज रहेओ॥<br><br>
+                    श्री गोवर्धन महाराज, ओ महाराज,<br>
+                    तेरे माथे मुकुट विराज रहेओ॥
+                </div>
+            </div>
+
+            <button class="accordion"><i class="fa-solid fa-om"></i> श्री कृष्ण आरती <i class="fa-solid fa-chevron-down" style="float: right;"></i></button>
+            <div class="panel">
+                <div class="scroll-text">
+                    <strong>आरती कुंजबिहारी की,</strong><br>
+                    श्री गिरिधर कृष्ण मुरारी की॥<br><br>
+                    गले में बैजंती माला,<br>
+                    बजावै मुरली मधुर बाला।<br>
+                    श्रवण में कुण्डल झलकाला,<br>
+                    नंद के आनंद नंदलाला॥<br><br>
+                    गगन सम अंग कांति काली,<br>
+                    राधिका चमक रही आली।<br>
+                    लतन में ठाढ़े बनमाली,<br>
+                    भ्रमर सी अलक, कस्तूरी तिलक,<br>
+                    चंद्र सी झलक, ललित छवि श्यामा प्यारी की॥<br>
+                    श्री गिरिधर कृष्ण मुरारी की...<br><br>
+                    कनकमय मोर मुकुट बिलसै,<br>
+                    देवता दरसन को तरसैं।<br>
+                    गगन सों सुमन रासि बरसै,<br>
+                    बजे मुरचंग, मधुर मिरदंग,<br>
+                    ग्वालिन संग, अतुल रति गोप कुमारी की॥<br>
+                    श्री गिरिधर कृष्ण मुरारी की...
+                </div>
+            </div>
+        </div>
+
+        <!-- Share Card -->
+        <div class="share-card">
+            <div class="share-text" id="shareText">
+                "गोवर्धन पूजा के पावन पर्व पर भगवान श्रीकृष्ण की कृपा आप और आपके परिवार पर सदा बनी रहे। शुभ अन्नकूट! 🌿🙏"
+            </div>
+            <button class="btn" onclick="shareWishes()">
+                <i class="fa-solid fa-share-nodes"></i> शुभकामनाएं साझा करें
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<div id="toast" class="toast">शुभकामनाएं कॉपी हो गईं!</div>
+
+<script>
+    // Accordion Logic
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+
+    // Share Logic
+    function shareWishes() {
+        var shareText = document.getElementById("shareText").innerText;
+        if (navigator.share) {
+            navigator.share({
+                title: 'गोवर्धन पूजा',
+                text: shareText
+            }).catch(console.error);
+        } else {
+            navigator.clipboard.writeText(shareText).then(function() {
+                showToast("शुभकामनाएं कॉपी हो गईं! अब आप इसे पेस्ट कर सकते हैं।");
+            });
+        }
+    }
+
+    function showToast(msg) {
+        var toast = document.getElementById("toast");
+        toast.innerText = msg;
+        toast.className = "toast show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+    }
+</script>
 
 </body>
 </html>

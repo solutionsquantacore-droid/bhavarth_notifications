@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्री कृष्ण जन्माष्टमी</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a3d62; /* Peacock Blue */
+            --secondary: #3c6382; /* Muted Blue */
+            --accent: #f8c291; /* Flute/Makhan Yellow-Orange */
+            --bg-light: #f1f2f6;
+            --text-dark: #2f3542;
+            --text-muted: #57606f;
+            --card-bg: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Mukta', sans-serif;
+            background-color: #dfe4ea;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 30px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 350px;
+        }
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 61, 98, 0.9), transparent);
+            padding: 40px 20px 20px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            text-align: center;
+        }
+        .hero-title {
+            font-family: 'Yatra One', cursive;
+            color: #ffffff;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 5px;
+        }
+        .hero-subtitle {
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 25px 20px;
+            margin: 20px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(10, 61, 98, 0.2);
+        }
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 12px;
+            box-shadow: 0 4px 10px rgba(10, 61, 98, 0.3);
+        }
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Text Styles */
+        p { margin-bottom: 12px; color: var(--text-muted); font-size: 1.05rem; }
+        
+        .highlight-box {
+            background-color: rgba(248, 194, 145, 0.15);
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            margin: 15px 0;
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Accordion for Aarti/Mantra */
+        .accordion {
+            margin-top: 15px;
+        }
+        .accordion-item {
+            border: 1px solid rgba(10, 61, 98, 0.1);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .accordion-header {
+            width: 100%;
+            padding: 15px;
+            background: #ffffff;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Mukta', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .accordion-header:hover {
+            background: rgba(10, 61, 98, 0.02);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: #fafafa;
+        }
+        .accordion-content-inner {
+            padding: 20px;
+            text-align: center; /* Centered as requested */
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+        .icon-toggle {
+            transition: transform 0.3s;
+        }
+        .active .icon-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Message Card */
+        .message-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            margin: 20px;
+            box-shadow: 0 10px 20px rgba(10, 61, 98, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .message-card::before {
+            content: '\f66f'; /* OM icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 120px;
+            color: rgba(255, 255, 255, 0.05);
+            transform: rotate(-15deg);
+        }
+        .message-card h3 {
+            font-family: 'Yatra One', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        .message-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <!-- RAW url conversion applied here -->
+            <img src="https://raw.githubusercontent.com/solutionsquantacore-droid/bhavarth_notifications/main/images/shree_krishna_janamasthami.webp" alt="श्री कृष्ण जन्माष्टमी">
+            <div class="hero-overlay">
+                <h1 class="hero-title">श्री कृष्ण जन्माष्टमी</h1>
+                <p class="hero-subtitle">नन्द के आनंद भयो, जय कन्हैया लाल की</p>
+            </div>
+        </div>
+
+        <!-- Story Section -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                </div>
+                <h2 class="section-title">जन्माष्टमी की कथा</h2>
+            </div>
+            <p>जन्माष्टमी का पावन पर्व भगवान श्री कृष्ण के जन्मोत्सव के रूप में मनाया जाता है। द्वापर युग में जब पृथ्वी पर असुरों और दुष्टों का अत्याचार बढ़ गया, तब मथुरा के अत्याचारी राजा कंस का वध करने और धर्म की स्थापना करने के लिए भगवान विष्णु ने देवकी और वसुदेव के आठवें पुत्र के रूप में श्री कृष्ण का अवतार लिया।</p>
+            <p>भाद्रपद माह के कृष्ण पक्ष की अष्टमी तिथि की आधी रात को रोहिणी नक्षत्र में मथुरा के कारागार में श्री कृष्ण का जन्म हुआ। वसुदेव जी ने रात के अंधेरे में यमुना पार कर गोकुल में नंद बाबा और यशोदा के घर कृष्ण को पहुँचाया। कृष्ण जी ने बालपन से ही अपनी लीलाओं से राक्षसों का संहार किया और बाद में कुरुक्षेत्र में अर्जुन को गीता का महान उपदेश दिया।</p>
+            <div class="highlight-box">
+                "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।<br>अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम्॥"
+            </div>
+        </div>
+
+        
+        <!-- Puja and Bhog Section -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fa-solid fa-hands-praying"></i>
+                </div>
+                <h2 class="section-title">पूजा विधि और भोग</h2>
+            </div>
+            <p><strong>पूजा विधि:</strong> जन्माष्टमी के दिन सुबह स्नान करके व्रत का संकल्प लें। रात्रि 12 बजे श्री कृष्ण के जन्म के समय भगवान की प्रतिमा को पंचामृत (दूध, दही, घी, शहद और गंगाजल) से स्नान कराएं। तत्पश्चात उन्हें सुंदर वस्त्र और आभूषण पहनाएं। भगवान को पुष्प, धूप, दीप और चंदन अर्पित करें।</p>
+            <p><strong>प्रिय भोग (माखन-मिश्री):</strong> कान्हा जी को माखन और मिश्री अत्यंत प्रिय है। इसके अलावा उन्हें धनिया की पंजीरी, मखाने की खीर, पेड़े और ताजे फलों का भोग अवश्य लगाएं। भोग में तुलसी दल डालना न भूलें, क्योंकि तुलसी के बिना भगवान भोग स्वीकार नहीं करते।</p>
+        </div>
+
+        <!-- Aarti Section -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fa-solid fa-om"></i>
+                </div>
+                <h2 class="section-title">श्री कृष्ण आरती</h2>
+            </div>
+            
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span><i class="fa-solid fa-music"></i> आरती कुंजबिहारी की</span>
+                        <i class="fa-solid fa-chevron-down icon-toggle"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            आरती कुंजबिहारी की, श्री गिरिधर कृष्णमुरारी की॥<br><br>
+                            गले में बैजंती माला, बजावै मुरली मधुर बाला।<br>
+                            श्रवण में कुण्डल झलकाला, नंद के आनंद नंदलाला।<br>
+                            गगन सम अंग कांति काली, राधिका चमक रही आली।<br>
+                            लतन में ठाढ़े बनमाली;<br>
+                            भ्रमर सी अलक, कस्तूरी तिलक, चंद्र सी झलक;<br>
+                            ललित छवि श्यामा प्यारी की॥<br><br>
+
+                            कनकमय मोर मुकुट बिलसै, देवता दरसन को तरसैं।<br>
+                            गगन सों सुमन रासि बरसै;<br>
+                            बजे मुरचंग, मधुर मिरदंग, ग्वालिन संग;<br>
+                            अतुल रति गोप कुमारी की॥<br><br>
+
+                            जहां ते प्रकट भई गंगा, कलुष कलि हारिणि श्रीगंगा।<br>
+                            स्मरन ते होत मोह भंगा;<br>
+                            बसी सिव सीस, जटा के बीच, हरै अघ कीच;<br>
+                            चरन छवि श्रीबनवारी की॥<br><br>
+
+                            चमकती उज्ज्वल तट रेनू, बज रही वृंदावन बेनू।<br>
+                            चहुं दिसि गोपि ग्वाल धेनू;<br>
+                            हंसत मृदु मंद, चांद नी चंद, कटत भव फंद;<br>
+                            टेर सुन दीन भिखारी की॥<br><br>
+                            
+                            आरती कुंजबिहारी की, श्री गिरिधर कृष्णमुरारी की॥
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Celebration Message Card -->
+        <div class="message-card">
+            <h3>शुभ जन्माष्टमी</h3>
+            <p>भगवान श्री कृष्ण आपके जीवन में सुख, शांति, समृद्धि और अपार प्रेम लेकर आएं। भावार्थ ऐप की ओर से आपको और आपके परिवार को जन्माष्टमी की ढेरों शुभकामनाएँ!</p>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleAccordion(btn) {
+            btn.classList.toggle("active");
+            var content = btn.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+    </script>
+</body>
+</html>

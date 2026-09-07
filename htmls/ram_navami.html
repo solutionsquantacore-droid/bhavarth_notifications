@@ -393,9 +393,7 @@
             <div class="share-text" id="shareText">
                 "मर्यादा पुरुषोत्तम भगवान श्रीराम आपके जीवन में सुख, शांति और समृद्धि का संचार करें। राम नवमी की हार्दिक शुभकामनाएं! 🙏 जय श्रीराम!"
             </div>
-            <button class="btn" onclick="shareWishes()">
-                <i class="fa-solid fa-share-nodes"></i> शुभकामनाएं साझा करें
-            </button>
+            
         </div>
 
     </div>
@@ -419,13 +417,7 @@
     }
 
     // Share Logic (Web Share API)
-    function shareWishes() {
-        var shareText = document.getElementById("shareText").innerText;
-        if (navigator.share) {
-            navigator.share({
-                title: 'राम नवमी',
-                text: shareText
-            }).catch(console.error);
+    ).catch(console.error);
         } else {
             // Fallback
             navigator.clipboard.writeText(shareText).then(function() {

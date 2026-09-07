@@ -354,9 +354,7 @@
             <div class="share-text" id="shareText">
                 "भाई दूज के पावन पर्व की हार्दिक शुभकामनाएं! ईश्वर आपके भाई-बहन के इस अटूट प्रेम को हमेशा बनाए रखे। 🌸"
             </div>
-            <button class="btn" onclick="shareWishes()">
-                <i class="fa-solid fa-share-nodes"></i> शुभकामनाएं साझा करें
-            </button>
+            
         </div>
 
     </div>
@@ -366,13 +364,7 @@
 
 <script>
     // Share Logic
-    function shareWishes() {
-        var shareText = document.getElementById("shareText").innerText;
-        if (navigator.share) {
-            navigator.share({
-                title: 'भाई दूज',
-                text: shareText
-            }).catch(console.error);
+    ).catch(console.error);
         } else {
             navigator.clipboard.writeText(shareText).then(function() {
                 showToast("शुभकामनाएं कॉपी हो गईं! अब आप इसे पेस्ट कर सकते हैं।");

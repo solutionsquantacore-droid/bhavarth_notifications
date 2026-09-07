@@ -389,9 +389,7 @@
             <div class="share-text" id="shareText">
                 "मकर संक्रांति के इस पावन अवसर पर सूर्य देव आपके जीवन में सुख, शांति, समृद्धि और नई ऊर्जा का संचार करें। शुभ मकर संक्रांति! 🪁🌞"
             </div>
-            <button class="btn" onclick="shareWishes()">
-                <i class="fa-solid fa-share-nodes"></i> शुभकामनाएं साझा करें
-            </button>
+            
         </div>
 
     </div>
@@ -415,13 +413,7 @@
     }
 
     // Share Logic
-    function shareWishes() {
-        var shareText = document.getElementById("shareText").innerText;
-        if (navigator.share) {
-            navigator.share({
-                title: 'मकर संक्रांति',
-                text: shareText
-            }).catch(console.error);
+    ).catch(console.error);
         } else {
             navigator.clipboard.writeText(shareText).then(function() {
                 showToast("शुभकामनाएं कॉपी हो गईं! अब आप इसे पेस्ट कर सकते हैं।");

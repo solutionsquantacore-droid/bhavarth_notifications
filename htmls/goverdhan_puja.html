@@ -412,9 +412,7 @@
             <div class="share-text" id="shareText">
                 "गोवर्धन पूजा के पावन पर्व पर भगवान श्रीकृष्ण की कृपा आप और आपके परिवार पर सदा बनी रहे। शुभ अन्नकूट! 🌿🙏"
             </div>
-            <button class="btn" onclick="shareWishes()">
-                <i class="fa-solid fa-share-nodes"></i> शुभकामनाएं साझा करें
-            </button>
+            
         </div>
 
     </div>
@@ -438,13 +436,7 @@
     }
 
     // Share Logic
-    function shareWishes() {
-        var shareText = document.getElementById("shareText").innerText;
-        if (navigator.share) {
-            navigator.share({
-                title: 'गोवर्धन पूजा',
-                text: shareText
-            }).catch(console.error);
+    ).catch(console.error);
         } else {
             navigator.clipboard.writeText(shareText).then(function() {
                 showToast("शुभकामनाएं कॉपी हो गईं! अब आप इसे पेस्ट कर सकते हैं।");

@@ -472,9 +472,7 @@
             <div class="share-text" id="shareText">
                 "माँ दुर्गा आपके जीवन में शक्ति, सुख, शांति और समृद्धि प्रदान करें। जय माता दी! 🙏"
             </div>
-            <button class="btn" onclick="shareWishes()">
-                <i class="fa-solid fa-share-nodes"></i> शुभकामनाएं साझा करें
-            </button>
+            
         </div>
 
     </div>
@@ -498,13 +496,7 @@
     }
 
     // Share Logic (Web Share API)
-    function shareWishes() {
-        var shareText = document.getElementById("shareText").innerText;
-        if (navigator.share) {
-            navigator.share({
-                title: 'दुर्गा अष्टमी',
-                text: shareText
-            }).catch(console.error);
+    ).catch(console.error);
         } else {
             // Fallback
             navigator.clipboard.writeText(shareText).then(function() {
